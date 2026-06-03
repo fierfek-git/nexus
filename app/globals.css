@@ -1,0 +1,207 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* fierfek.nexus brand colors */
+  --dark-red: #8B0F1A;
+  --accent-red: #E63946;
+  --deep-black: #141414;
+  --darker-black: #0a0a0a;
+  --light-smoke: #F2F2F2;
+  --cold-gray: #A3A3A3;
+  --steel-blue: #1F2A33;
+  
+  /* Design tokens mapped to brand */
+  --background: #0a0a0a;
+  --foreground: #F2F2F2;
+  --card: #141414;
+  --card-foreground: #F2F2F2;
+  --popover: #141414;
+  --popover-foreground: #F2F2F2;
+  --primary: #E63946;
+  --primary-foreground: #F2F2F2;
+  --secondary: #1F2A33;
+  --secondary-foreground: #F2F2F2;
+  --muted: #1F2A33;
+  --muted-foreground: #A3A3A3;
+  --accent: #8B0F1A;
+  --accent-foreground: #F2F2F2;
+  --destructive: #E63946;
+  --destructive-foreground: #F2F2F2;
+  --border: #1a1a1a;
+  --border-red: rgba(230, 57, 70, 0.2);
+  --input: #141414;
+  --ring: #E63946;
+  --radius: 0.25rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+  --font-heading: 'Space Grotesk', 'Space Grotesk Fallback', sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Brand color utilities */
+  --color-dark-red: #8B0F1A;
+  --color-accent-red: #E63946;
+  --color-deep-black: #141414;
+  --color-darker-black: #0a0a0a;
+  --color-light-smoke: #F2F2F2;
+  --color-cold-gray: #A3A3A3;
+  --color-steel-blue: #1F2A33;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
+
+/* Glow effects */
+.glow-red {
+  box-shadow: 0 0 30px rgba(230, 57, 70, 0.4), 0 0 60px rgba(139, 15, 26, 0.2);
+}
+
+.glow-red-subtle {
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.15);
+}
+
+.glow-red-text {
+  text-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+}
+
+/* HUD-style borders */
+.hud-border {
+  border: 1px solid rgba(230, 57, 70, 0.25);
+}
+
+.hud-border-subtle {
+  border: 1px solid rgba(230, 57, 70, 0.1);
+}
+
+/* Cyberpunk card style */
+.cyber-card {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+  border: 1px solid rgba(230, 57, 70, 0.15);
+  position: relative;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.3), transparent);
+}
+
+/* Grid pattern overlay */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(230, 57, 70, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230, 57, 70, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Radial gradient for hero */
+.hero-radial {
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(139, 15, 26, 0.4) 0%, rgba(230, 57, 70, 0.1) 30%, transparent 70%);
+}
+
+/* Corner accents for cards */
+.corner-accent::before,
+.corner-accent::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: rgba(230, 57, 70, 0.4);
+  border-style: solid;
+}
+
+.corner-accent::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+
+.corner-accent::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Animated scan line */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(230, 57, 70, 0.1), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Pulse animation for status indicators */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px rgba(230, 57, 70, 0.6); }
+  50% { box-shadow: 0 0 12px rgba(230, 57, 70, 0.9); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
