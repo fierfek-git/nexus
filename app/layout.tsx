@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   description:
     'Private digital services paid with Monero/XMR. Privacy, security and operational discretion.',
 icons: {
-   icon: 'favicon-v2.png',
-   shortcut: 'favicon-v2.png',
-   apple: 'favicon-v2.png',
+  icon: '/images/favicon-v2.png',
+  shortcut: '/images/favicon-v2.png',
+  apple: '/images/favicon-v2.png',
 },
   openGraph: {
     title: 'fierfek.nexus',
