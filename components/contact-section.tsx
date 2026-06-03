@@ -61,7 +61,7 @@ export function ContactSection() {
                   rel="noopener noreferrer"
                   className="text-[10px] text-[#A3A3A3] hover:text-[#E63946] transition-colors"
                  >
-                   EMAIL
+                   https://xmrbazaar.com/user/Fierfek/
                </a>
                 </div>
               </div>
