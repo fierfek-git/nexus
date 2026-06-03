@@ -53,11 +53,16 @@ export function ContactSection() {
                 </svg>
                 <div>
                   <h4 className="text-[10px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-1">
-                    XMRVAZAAR PROFILE
+                    XMEBAZAAR PROFILE
                   </h4>
-                  <p className="text-[10px] text-[#A3A3A3]">
-                    https://xmrbazaar.com/user/Fierfek/
-                  </p>
+                <a
+  href="https://xmrbazaar.com/user/Fierfek/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[10px] text-[#A3A3A3] hover:text-[#E63946] transition-colors"
+>
+  EMAIL
+</a>
                 </div>
               </div>
             </div>
