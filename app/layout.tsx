@@ -26,10 +26,11 @@ export const metadata: Metadata = {
   title: 'fierfek.nexus',
   description:
     'Private digital services paid with Monero/XMR. Privacy, security and operational discretion.',
-  icons: {
-    icon: '/favicon.png',
-    apple: '/favicon.png',
-  },
+icons: {
+   icon: 'favicon-v2.png',
+   shortcut: 'favicon-v2.png',
+   apple: 'favicon-v2.png',
+},
   openGraph: {
     title: 'fierfek.nexus',
     description:
