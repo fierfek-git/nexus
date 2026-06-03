@@ -53,10 +53,10 @@ export function ContactSection() {
                 </svg>
                 <div>
                   <h4 className="text-[10px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-1">
-                    XMR PAYMENT INQUIRIES
+                    XMRVAZAAR PROFILE
                   </h4>
                   <p className="text-[10px] text-[#A3A3A3]">
-                    payments@fierfek.nexus
+                    https://xmrbazaar.com/user/Fierfek/
                   </p>
                 </div>
               </div>
