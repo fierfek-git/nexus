@@ -38,11 +38,16 @@ export function ContactSection() {
                 <Mail size={14} className="text-[#E63946] mt-0.5 shrink-0" />
                 <div>
                   <h4 className="text-[10px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-1">
-                    EMAIL (PGP ENCRYPTED)
+                    CHAT (PGP ENCRYPTED)
                   </h4>
-                  <p className="text-[10px] text-[#A3A3A3]">
-                    hello@fierfek.nexus
-                  </p>
+                <a
+                 href="https://smp19.simplex.im/a#yHTqtQd6GRLoUi8SvKXbVqvmNgfKIKG4EqVpJHHncBo"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="text-[10px] text-[#A3A3A3] hover:text-[#E63946] transition-colors"
+                 >
+                   SimpleX Chat
+                 </a>
                 </div>
               </div>
 
@@ -53,7 +58,7 @@ export function ContactSection() {
                 </svg>
                 <div>
                   <h4 className="text-[10px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-1">
-                    XMEBAZAAR PROFILE
+                    XMRBAZAAR PROFILE
                   </h4>
                 <a
                   href="https://xmrbazaar.com/user/Fierfek/"
