@@ -56,13 +56,13 @@ export function ContactSection() {
                     XMEBAZAAR PROFILE
                   </h4>
                 <a
-  href="https://xmrbazaar.com/user/Fierfek/"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-[10px] text-[#A3A3A3] hover:text-[#E63946] transition-colors"
->
-  EMAIL
-</a>
+                  href="https://xmrbazaar.com/user/Fierfek/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] text-[#A3A3A3] hover:text-[#E63946] transition-colors"
+                 >
+                   EMAIL
+               </a>
                 </div>
               </div>
             </div>
