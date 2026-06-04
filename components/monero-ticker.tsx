@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 type MoneroPrices = {
   usd: number
@@ -8,9 +8,15 @@ type MoneroPrices = {
   rub: number
 }
 
+type Trend = "up" | "down" | "flat"
+
 export function MoneroTicker() {
   const [prices, setPrices] = useState<MoneroPrices | null>(null)
   const [error, setError] = useState(false)
+  const [trend, setTrend] = useState<Trend>("flat")
+  const [utcTime, setUtcTime] = useState("--:--:-- UTC")
+
+  const previousUsdPrice = useRef<number | null>(null)
 
   async function fetchPrices() {
     try {
@@ -25,12 +31,24 @@ export function MoneroTicker() {
 
       const data = await response.json()
 
-      setPrices({
+      const newPrices: MoneroPrices = {
         usd: data.monero.usd,
         eur: data.monero.eur,
         rub: data.monero.rub,
-      })
+      }
 
+      if (previousUsdPrice.current !== null) {
+        if (newPrices.usd > previousUsdPrice.current) {
+          setTrend("up")
+        } else if (newPrices.usd < previousUsdPrice.current) {
+          setTrend("down")
+        } else {
+          setTrend("flat")
+        }
+      }
+
+      previousUsdPrice.current = newPrices.usd
+      setPrices(newPrices)
       setError(false)
     } catch {
       setError(true)
@@ -40,11 +58,35 @@ export function MoneroTicker() {
   useEffect(() => {
     fetchPrices()
 
-    const interval = setInterval(() => {
+    const priceInterval = setInterval(() => {
       fetchPrices()
-    }, 60000)
+    }, 30000)
 
-    return () => clearInterval(interval)
+    return () => clearInterval(priceInterval)
+  }, [])
+
+  useEffect(() => {
+    function updateUtcTime() {
+      const now = new Date()
+
+      const formattedTime = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "UTC",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      }).format(now)
+
+      setUtcTime(`${formattedTime} UTC`)
+    }
+
+    updateUtcTime()
+
+    const clockInterval = setInterval(() => {
+      updateUtcTime()
+    }, 1000)
+
+    return () => clearInterval(clockInterval)
   }, [])
 
   const formatPrice = (value: number, currency: "USD" | "EUR" | "RUB") => {
@@ -63,12 +105,30 @@ export function MoneroTicker() {
     return value.toString()
   }
 
+  const trendSymbol = trend === "up" ? "▲" : trend === "down" ? "▼" : "━"
+
+  const trendClass =
+    trend === "up"
+      ? "text-[#39FF14]"
+      : trend === "down"
+        ? "text-[#E63946]"
+        : "text-[#A3A3A3]"
+
   return (
     <div className="hidden xl:flex items-center h-8 px-3 border border-[#8B0F1A]/70 bg-[#0a0a0a]/80 rounded-sm shadow-[0_0_14px_rgba(230,57,70,0.12)] whitespace-nowrap">
       <div className="flex items-center gap-2 pr-3 border-r border-[#8B0F1A]/50">
         <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] shadow-[0_0_8px_#E63946]" />
         <span className="text-[9px] font-mono tracking-[0.18em] text-[#E63946]">
           LIVE
+        </span>
+      </div>
+
+      <div className="flex items-center gap-2 px-3 border-r border-[#8B0F1A]/50">
+        <span className={`text-[10px] font-mono ${trendClass}`}>
+          {trendSymbol}
+        </span>
+        <span className="text-[9px] font-mono tracking-[0.12em] text-[#A3A3A3]">
+          {utcTime}
         </span>
       </div>
 
