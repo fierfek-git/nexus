@@ -3,14 +3,16 @@ import { NextResponse } from "next/server"
 export const dynamic = "force-dynamic"
 export const revalidate = 0
 
-type MoneroPrices = {
+type SourceName = "coingecko" | "cryptocompare"
+
+type SourcePrice = {
   usd: number
   eur: number
   rub: number
-  source: "coingecko" | "cryptocompare"
+  source: SourceName
 }
 
-async function getPricesFromCoinGecko(): Promise<MoneroPrices> {
+async function getPricesFromCoinGecko(): Promise<SourcePrice> {
   const response = await fetch(
     "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=usd,eur,rub",
     {
@@ -43,7 +45,7 @@ async function getPricesFromCoinGecko(): Promise<MoneroPrices> {
   }
 }
 
-async function getPricesFromCryptoCompare(): Promise<MoneroPrices> {
+async function getPricesFromCryptoCompare(): Promise<SourcePrice> {
   const response = await fetch(
     "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD,EUR,RUB",
     {
@@ -76,27 +78,40 @@ async function getPricesFromCryptoCompare(): Promise<MoneroPrices> {
   }
 }
 
+function average(values: number[]) {
+  const total = values.reduce((sum, value) => sum + value, 0)
+  return total / values.length
+}
+
 export async function GET() {
-  try {
-    let prices: MoneroPrices
+  const results = await Promise.allSettled([
+    getPricesFromCoinGecko(),
+    getPricesFromCryptoCompare(),
+  ])
 
-    try {
-      prices = await getPricesFromCoinGecko()
-    } catch {
-      prices = await getPricesFromCryptoCompare()
-    }
-
-    return NextResponse.json({
-      usd: prices.usd,
-      eur: prices.eur,
-      rub: prices.rub,
-      source: prices.source,
-      updatedAt: new Date().toISOString(),
+  const validPrices = results
+    .filter((result): result is PromiseFulfilledResult<SourcePrice> => {
+      return result.status === "fulfilled"
     })
-  } catch {
+    .map((result) => result.value)
+
+  if (validPrices.length === 0) {
     return NextResponse.json(
       { error: "Failed to fetch XMR prices" },
       { status: 502 }
     )
   }
+
+  const usd = average(validPrices.map((price) => price.usd))
+  const eur = average(validPrices.map((price) => price.eur))
+  const rub = average(validPrices.map((price) => price.rub))
+
+  return NextResponse.json({
+    usd,
+    eur,
+    rub,
+    mode: validPrices.length > 1 ? "average" : "single-source",
+    sourcesUsed: validPrices.map((price) => price.source),
+    updatedAt: new Date().toISOString(),
+  })
 }
