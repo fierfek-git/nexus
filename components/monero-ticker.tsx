@@ -20,10 +20,9 @@ export function MoneroTicker() {
 
   async function fetchPrices() {
     try {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=usd,eur,rub",
-        { cache: "no-store" }
-      )
+      const response = await fetch("/api/monero-price", {
+        cache: "no-store",
+      })
 
       if (!response.ok) {
         throw new Error("Failed to fetch XMR prices")
@@ -32,9 +31,9 @@ export function MoneroTicker() {
       const data = await response.json()
 
       const newPrices: MoneroPrices = {
-        usd: data.monero.usd,
-        eur: data.monero.eur,
-        rub: data.monero.rub,
+        usd: data.usd,
+        eur: data.eur,
+        rub: data.rub,
       }
 
       if (previousUsdPrice.current !== null) {
