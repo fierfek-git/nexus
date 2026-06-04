@@ -48,13 +48,20 @@ export function MoneroTicker() {
   }, [])
 
   const formatPrice = (value: number, currency: "USD" | "EUR" | "RUB") => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency,
-      maximumFractionDigits: currency === "RUB" ? 0 : 2,
-    }).format(value)
+  if (currency === "USD") {
+    return `$${value.toFixed(2)}`
   }
 
+  if (currency === "EUR") {
+    return `€${value.toFixed(2)}`
+  }
+
+  if (currency === "RUB") {
+    return `₽${Math.round(value).toLocaleString("en-US")}`
+  }
+
+  return value.toString()
+}
 return (
   <div className="hidden xl:flex items-center h-8 px-3 border border-[#8B0F1A]/70 bg-[#0a0a0a]/80 rounded-sm shadow-[0_0_14px_rgba(230,57,70,0.12)] whitespace-nowrap">
     <div className="flex items-center gap-2 pr-3 border-r border-[#8B0F1A]/50">
