@@ -37,7 +37,7 @@ export function Header() {
           <MoneroTicker />
           
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-5">
             {navItems.map((item) => (
               <Link
                 key={item.label}
