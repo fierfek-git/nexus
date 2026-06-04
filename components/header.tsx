@@ -63,12 +63,6 @@ export function Header() {
               <span className="text-[10px] font-mono tracking-[0.15em]">PAY WITH XMR</span>
             </Link>
 
-            {/* OPSEC Status */}
-            <div className="hidden md:flex items-center gap-2 text-[10px] font-mono text-[#A3A3A3] tracking-[0.1em]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] pulse-glow" />
-              <span>OPSEC FIRST</span>
-            </div>
-
             {/* Mobile menu button */}
             <button
               className="lg:hidden p-2 text-[#A3A3A3] hover:text-[#F2F2F2]"
@@ -105,10 +99,7 @@ export function Header() {
                   </svg>
                   <span className="text-[10px] font-mono tracking-[0.15em]">PAY WITH XMR</span>
                 </Link>
-                <div className="flex items-center gap-2 text-[10px] font-mono text-[#A3A3A3] tracking-[0.1em]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] pulse-glow" />
-                  <span>OPSEC FIRST</span>
-                </div>
+              
               </div>
             </div>
           </nav>
