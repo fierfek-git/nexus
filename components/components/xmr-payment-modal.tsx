@@ -49,9 +49,15 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#1a1a1a] px-5 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-[#E63946] text-[#141414] font-bold">
-              M
-            </div>
+            <div className="flex h-8 w-8 items-center justify-center rounded-sm border border-[#8B0F1A] bg-[#141414] p-1">
+  <Image
+    src="/images/xmr-icon-red.png"
+    alt="Monero XMR"
+    width={24}
+    height={24}
+    className="h-6 w-6 object-contain"
+  />
+</div>
 
             <h2 className="font-mono text-sm tracking-[0.2em] text-[#E63946]">
               PAY WITH XMR
@@ -163,9 +169,15 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
               </div>
 
               <div className="flex items-center gap-2 border-l border-[#1a1a1a] px-5 font-mono text-sm text-[#F2F2F2]">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#E63946] text-[#141414] text-xs font-bold">
-                  M
-                </span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-sm border border-[#8B0F1A] bg-[#141414] p-1">
+  <Image
+    src="/images/xmr-icon-red.png"
+    alt="Monero XMR"
+    width={20}
+    height={20}
+    className="h-5 w-5 object-contain"
+  />
+</span>
                 XMR
               </div>
             </div>
