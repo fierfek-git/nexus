@@ -10,7 +10,7 @@ const XMR_ADDRESS =
 const XMR_USD_PRICE = 350.64
 
 function shortenAddress(address: string) {
-  return `${address.slice(0, 18)}...${address.slice(-18)}`
+  return `${address.slice(0, 17)}...${address.slice(-17)}`
 }
 
 type XmrPaymentModalProps = {
