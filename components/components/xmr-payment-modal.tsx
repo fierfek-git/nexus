@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { X, Copy, AlertTriangle, RefreshCw } from "lucide-react"
+import { QRCodeSVG } from "qrcode.react"
 import { useEffect, useMemo, useState } from "react"
 
 const XMR_ADDRESS =
@@ -147,12 +148,6 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
     return `monero:${XMR_ADDRESS}?${params.toString()}`
   }, [xmrAmount])
 
-  const qrImageUrl = useMemo(() => {
-    return `https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=1&data=${encodeURIComponent(
-      paymentUri,
-    )}`
-  }, [paymentUri])
-
   async function copyAddress() {
     await navigator.clipboard.writeText(XMR_ADDRESS)
     setCopied(true)
@@ -210,11 +205,13 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
 
             <div className="flex justify-center">
               <div className="rounded-sm bg-white p-3 shadow-[0_0_25px_rgba(230,57,70,0.25)]">
-                <img
-                  src={qrImageUrl}
-                  alt="XMR payment QR"
-                  width={260}
-                  height={260}
+                <QRCodeSVG
+                  value={paymentUri}
+                  size={260}
+                  marginSize={1}
+                  level="M"
+                  bgColor="#ffffff"
+                  fgColor="#000000"
                   className="h-[260px] w-[260px]"
                 />
               </div>
