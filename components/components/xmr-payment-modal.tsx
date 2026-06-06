@@ -204,12 +204,12 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
         </div>
 
         {/* Warning */}
-        <div className="mx-5 mb-5 flex items-start gap-3 border border-[#8B0F1A] bg-[#8B0F1A]/10 p-4 text-[11px] text-[#A3A3A3]">
-          <AlertTriangle className="mt-0.5 text-[#E63946]" size={18} />
-          <p>
-            Send only XMR to this address. Wrong payments cannot be recovered.
-          </p>
-        </div>
+      <div className="mx-5 mb-5 flex items-center justify-center gap-3 border border-[#8B0F1A] bg-[#8B0F1A]/10 px-5 py-4 text-center text-sm text-[#F2F2F2]">
+  <AlertTriangle className="shrink-0 text-[#E63946]" size={20} />
+  <p className="font-mono tracking-[0.04em]">
+    Send only XMR to this address. Wrong payments cannot be recovered.
+  </p>
+</div>
       </div>
     </div>
   )
