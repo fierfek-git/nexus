@@ -19,15 +19,18 @@ const WHITE = "#F2F2F2"
 
 function getSafeNumber(value: unknown): number | null {
   if (typeof value === "number" && Number.isFinite(value)) return value
+
   if (typeof value === "string") {
     const parsed = Number(value)
     return Number.isFinite(parsed) ? parsed : null
   }
+
   return null
 }
 
 function formatUsd(value: number | null): string {
   if (value === null) return "--"
+
   return value.toLocaleString("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -36,6 +39,7 @@ function formatUsd(value: number | null): string {
 
 function formatEur(value: number | null): string {
   if (value === null) return "--"
+
   return value.toLocaleString("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -44,6 +48,7 @@ function formatEur(value: number | null): string {
 
 function formatRub(value: number | null): string {
   if (value === null) return "--"
+
   return value.toLocaleString("en-US", {
     maximumFractionDigits: 0,
   })
@@ -113,6 +118,7 @@ async function fetchLivePrices(): Promise<MoneroPrices> {
 
   if (coinGeckoResult.status === "fulfilled") {
     const monero = coinGeckoResult.value?.monero ?? {}
+
     usd = usd ?? getSafeNumber(monero.usd)
     eur = eur ?? getSafeNumber(monero.eur)
     rub = getSafeNumber(monero.rub)
@@ -150,11 +156,13 @@ export function MoneroTicker() {
   const [open, setOpen] = useState(false)
 
   const wrapperRef = useRef<HTMLDivElement | null>(null)
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const trend = getTrend(prices.usd24hChange)
   const trendColor = getTrendColor(trend)
 
   const chartStroke = trend === "up" ? GREEN : trend === "down" ? RED : WHITE
+
   const chartGlow =
     trend === "up"
       ? "drop-shadow(0 0 7px rgba(57,255,20,0.40))"
@@ -177,8 +185,8 @@ export function MoneroTicker() {
       }
     }
 
-    const width = 220
-    const height = 44
+    const width = 210
+    const height = 40
     const min = Math.min(...chart24h)
     const max = Math.max(...chart24h)
     const range = max - min || 1
@@ -204,6 +212,20 @@ export function MoneroTicker() {
 
     return { linePath, fillPath }
   }, [chart24h])
+
+  function openDropdown() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current)
+    }
+
+    setOpen(true)
+  }
+
+  function closeDropdown() {
+    closeTimerRef.current = setTimeout(() => {
+      setOpen(false)
+    }, 160)
+  }
 
   useEffect(() => {
     let mounted = true
@@ -239,6 +261,7 @@ export function MoneroTicker() {
       try {
         const live = await fetchLivePrices()
         if (!mounted) return
+
         setPrices(live)
         setUpdatedAt(new Date())
       } catch (error) {
@@ -259,6 +282,7 @@ export function MoneroTicker() {
       try {
         const history = await fetch24hChart()
         if (!mounted) return
+
         setChart24h(history)
       } catch (error) {
         console.error("Failed to refresh 24h Monero chart:", error)
@@ -274,12 +298,14 @@ export function MoneroTicker() {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (!wrapperRef.current) return
+
       if (!wrapperRef.current.contains(event.target as Node)) {
         setOpen(false)
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside)
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
@@ -298,22 +324,22 @@ export function MoneroTicker() {
     <div
       ref={wrapperRef}
       className="relative hidden xl:block"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={openDropdown}
+      onMouseLeave={closeDropdown}
     >
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="group flex h-[56px] w-[515px] items-center overflow-hidden rounded-[18px] border border-[#2a2a2a] bg-[#050505]/95 pl-4 pr-3 text-left transition-all duration-300 hover:border-[#404040]"
+        className="group flex h-[50px] w-[465px] items-center overflow-hidden rounded-[16px] border border-[#2a2a2a] bg-[#050505]/95 pl-3 pr-2 text-left transition-all duration-300 hover:border-[#404040]"
         style={{
           boxShadow:
-            "0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 0 1px rgba(230,57,70,0.10), 0 0 18px rgba(230,57,70,0.08), 0 12px 30px rgba(0,0,0,0.55)",
+            "0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 0 1px rgba(230,57,70,0.10), 0 0 18px rgba(230,57,70,0.08), 0 10px 26px rgba(0,0,0,0.55)",
           backdropFilter: "blur(10px)",
         }}
         aria-label="Open Monero price details"
       >
         <div
-          className="mr-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#343434] bg-[#0a0a0a]"
+          className="mr-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#343434] bg-[#0a0a0a]"
           style={{
             boxShadow:
               "inset 0 0 0 1px rgba(255,255,255,0.05), 0 0 14px rgba(0,0,0,0.45), 0 0 10px rgba(230,57,70,0.12)",
@@ -322,24 +348,25 @@ export function MoneroTicker() {
           <Image
             src="/images/xmr-icon-red.png"
             alt="Monero"
-            width={30}
-            height={30}
-            className="h-[30px] w-[30px] object-contain"
+            width={27}
+            height={27}
+            className="h-[27px] w-[27px] object-contain"
           />
         </div>
 
-        <div className="mr-5 min-w-[128px]">
-          <div className="font-sans text-[14px] font-semibold leading-none text-[#F2F2F2]">
+        <div className="mr-3 min-w-[120px]">
+          <div className="font-sans text-[13px] font-semibold leading-none text-[#F2F2F2]">
             Monero
           </div>
-          <div className="mt-1 font-mono text-[11px] leading-none text-[#D8D8D8]">
+
+          <div className="mt-1 font-mono text-[10px] leading-none text-[#D8D8D8]">
             XMR {formatUsd(prices.usd)} $
           </div>
         </div>
 
-        <div className="mr-5 flex min-w-[82px] flex-col items-center justify-center leading-none">
+        <div className="mr-3 flex min-w-[68px] flex-col items-start justify-center leading-none">
           <span
-            className="font-mono text-[13px] font-bold tracking-[0.06em]"
+            className="font-mono text-[12px] font-bold tracking-[0.06em]"
             style={{
               color: trendColor,
               textShadow:
@@ -354,7 +381,7 @@ export function MoneroTicker() {
           </span>
 
           <span
-            className="mt-1 font-mono text-[13px] font-bold tracking-[0.06em]"
+            className="mt-1 font-mono text-[12px] font-bold tracking-[0.06em]"
             style={{
               color: trendColor,
               textShadow:
@@ -369,13 +396,13 @@ export function MoneroTicker() {
           </span>
         </div>
 
-        <div className="relative ml-auto flex h-[44px] w-[220px] items-center overflow-hidden rounded-r-[12px]">
+        <div className="relative ml-auto flex h-[40px] w-[210px] items-center overflow-hidden rounded-r-[12px]">
           <div
             className="absolute inset-0"
             style={{
               background:
                 trend === "down"
-                  ? "linear-gradient(90deg, rgba(88,12,20,0.70) 0%, rgba(70,8,15,0.55) 60%, rgba(50,6,10,0.35) 100%)"
+                  ? "linear-gradient(90deg, rgba(88,12,20,0.72) 0%, rgba(70,8,15,0.55) 60%, rgba(50,6,10,0.35) 100%)"
                   : trend === "up"
                     ? "linear-gradient(90deg, rgba(10,55,12,0.55) 0%, rgba(8,42,10,0.40) 60%, rgba(5,30,8,0.25) 100%)"
                     : "linear-gradient(90deg, rgba(28,28,28,0.55) 0%, rgba(18,18,18,0.35) 100%)",
@@ -383,19 +410,20 @@ export function MoneroTicker() {
           />
 
           <svg
-            viewBox="0 0 220 44"
-            className="relative z-10 h-[44px] w-[220px]"
+            viewBox="0 0 210 40"
+            className="relative z-10 h-[40px] w-[210px]"
             aria-hidden="true"
           >
             {sparkline.fillPath && (
               <path d={sparkline.fillPath} fill={chartFill} />
             )}
+
             {sparkline.linePath && (
               <path
                 d={sparkline.linePath}
                 fill="none"
                 stroke={chartStroke}
-                strokeWidth="2.4"
+                strokeWidth="2.3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 style={{ filter: chartGlow }}
@@ -407,16 +435,18 @@ export function MoneroTicker() {
 
       {open && (
         <div
-          className="absolute left-0 top-full z-50 mt-3 min-w-[760px] rounded-md border border-[#E63946]/25 bg-[#090909]/98 px-4 py-3"
+          className="absolute left-0 top-full z-50 mt-3 min-w-[720px] rounded-md border border-[#E63946]/25 bg-[#090909]/98 px-4 py-3 animate-in fade-in slide-in-from-top-2 duration-300"
           style={{
             boxShadow:
               "0 0 0 1px rgba(255,255,255,0.03) inset, 0 16px 40px rgba(0,0,0,0.55), 0 0 18px rgba(230,57,70,0.08)",
             backdropFilter: "blur(12px)",
           }}
+          onMouseEnter={openDropdown}
+          onMouseLeave={closeDropdown}
         >
           <div className="flex items-center gap-4 font-mono text-[11px] tracking-[0.18em] text-[#A3A3A3]">
             <span className="flex items-center gap-2 text-[#F2F2F2]">
-              <span className="h-2 w-2 rounded-full bg-[#E63946]" />
+              <span className="h-2 w-2 rounded-full bg-[#E63946] shadow-[0_0_8px_#E63946]" />
               LIVE
             </span>
 
