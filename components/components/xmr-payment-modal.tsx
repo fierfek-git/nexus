@@ -306,7 +306,13 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
               </div>
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center gap-3 font-mono text-base md:text-lg text-[#F2F2F2]">
+            <div
+              className="mt-5 flex flex-wrap items-center gap-3 font-mono text-base md:text-lg font-bold tracking-[0.08em] text-[#F2F2F2]"
+              style={{
+                textShadow:
+                  "0 0 6px rgba(230,57,70,0.55), 0 0 14px rgba(230,57,70,0.42), 0 0 28px rgba(230,57,70,0.28)",
+              }}
+            >
               <span>
                 1 XMR ={" "}
                 {xmrUsdPrice ? xmrUsdPrice.toFixed(2) : "..."} USD
@@ -314,7 +320,13 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
 
               <span className="text-[#E63946]">•</span>
 
-              <span className="text-[#E63946]">
+              <span
+                className="text-[#E63946]"
+                style={{
+                  textShadow:
+                    "0 0 8px rgba(230,57,70,0.95), 0 0 18px rgba(230,57,70,0.7), 0 0 34px rgba(230,57,70,0.45)",
+                }}
+              >
                 {priceError ? "PRICE UNAVAILABLE" : "LIVE RATE"}
               </span>
             </div>
