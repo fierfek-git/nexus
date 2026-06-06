@@ -104,18 +104,11 @@ async function fetchLivePrices(): Promise<MoneroPrices> {
 
   if (krakenResult.status === "fulfilled") {
     const kraken = krakenResult.value?.result ?? {}
-    const usdPair =
-      kraken.XXMRZUSD ??
-      kraken.XMRUSD ??
-      Object.values(kraken)[0]
+    const usdPair = kraken.XXMRZUSD ?? kraken.XMRUSD ?? Object.values(kraken)[0]
+    const eurPair = kraken.XXMRZEUR ?? kraken.XMREUR ?? Object.values(kraken)[1]
 
-    const eurPair =
-      kraken.XXMRZEUR ??
-      kraken.XMREUR ??
-      Object.values(kraken)[1]
-
-    usd = getSafeNumber(usdPair?.c?.[0]) ?? usd
-    eur = getSafeNumber(eurPair?.c?.[0]) ?? eur
+    usd = getSafeNumber((usdPair as any)?.c?.[0]) ?? usd
+    eur = getSafeNumber((eurPair as any)?.c?.[0]) ?? eur
   }
 
   if (coinGeckoResult.status === "fulfilled") {
@@ -162,12 +155,19 @@ export function MoneroTicker() {
   const trendColor = getTrendColor(trend)
 
   const chartStroke = trend === "up" ? GREEN : trend === "down" ? RED : WHITE
+  const chartGlow =
+    trend === "up"
+      ? "drop-shadow(0 0 7px rgba(57,255,20,0.40))"
+      : trend === "down"
+        ? "drop-shadow(0 0 7px rgba(230,57,70,0.45))"
+        : "drop-shadow(0 0 5px rgba(255,255,255,0.22))"
+
   const chartFill =
     trend === "up"
-      ? "rgba(57, 255, 20, 0.12)"
+      ? "rgba(57,255,20,0.10)"
       : trend === "down"
-        ? "rgba(230, 57, 70, 0.14)"
-        : "rgba(255, 255, 255, 0.08)"
+        ? "rgba(230,57,70,0.12)"
+        : "rgba(255,255,255,0.06)"
 
   const sparkline = useMemo(() => {
     if (chart24h.length < 2) {
@@ -177,8 +177,8 @@ export function MoneroTicker() {
       }
     }
 
-    const width = 190
-    const height = 42
+    const width = 220
+    const height = 44
     const min = Math.min(...chart24h)
     const max = Math.max(...chart24h)
     const range = max - min || 1
@@ -304,65 +304,87 @@ export function MoneroTicker() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="group flex h-[58px] w-[480px] items-center overflow-hidden rounded-2xl border border-[#262626] bg-[#070707]/95 px-4 text-left transition-all duration-300 hover:border-[#3a3a3a]"
+        className="group flex h-[56px] w-[515px] items-center overflow-hidden rounded-[18px] border border-[#2a2a2a] bg-[#050505]/95 pl-4 pr-3 text-left transition-all duration-300 hover:border-[#404040]"
         style={{
           boxShadow:
-            "0 0 0 1px rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(230,57,70,0.08), 0 0 12px rgba(230,57,70,0.06), 0 10px 28px rgba(0,0,0,0.45)",
+            "0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 0 1px rgba(230,57,70,0.10), 0 0 18px rgba(230,57,70,0.08), 0 12px 30px rgba(0,0,0,0.55)",
           backdropFilter: "blur(10px)",
         }}
         aria-label="Open Monero price details"
       >
-        <div className="mr-3 flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#2c2c2c] bg-[#0d0d0d] shadow-[0_0_14px_rgba(230,57,70,0.16)]">
+        <div
+          className="mr-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#343434] bg-[#0a0a0a]"
+          style={{
+            boxShadow:
+              "inset 0 0 0 1px rgba(255,255,255,0.05), 0 0 14px rgba(0,0,0,0.45), 0 0 10px rgba(230,57,70,0.12)",
+          }}
+        >
           <Image
             src="/images/xmr-icon-red.png"
             alt="Monero"
-            width={28}
-            height={28}
-            className="h-7 w-7 object-contain"
+            width={30}
+            height={30}
+            className="h-[30px] w-[30px] object-contain"
           />
         </div>
 
-        <div className="mr-5 min-w-[140px]">
+        <div className="mr-5 min-w-[128px]">
           <div className="font-sans text-[14px] font-semibold leading-none text-[#F2F2F2]">
             Monero
           </div>
-          <div className="mt-1 font-mono text-[11px] leading-none text-[#CFCFCF]">
+          <div className="mt-1 font-mono text-[11px] leading-none text-[#D8D8D8]">
             XMR {formatUsd(prices.usd)} $
           </div>
         </div>
 
-        <div className="mr-6 flex min-w-[120px] items-center gap-3">
+        <div className="mr-5 flex min-w-[82px] flex-col items-center justify-center leading-none">
           <span
             className="font-mono text-[13px] font-bold tracking-[0.06em]"
-            style={{ color: trendColor }}
+            style={{
+              color: trendColor,
+              textShadow:
+                trend === "up"
+                  ? "0 0 8px rgba(57,255,20,0.25)"
+                  : trend === "down"
+                    ? "0 0 8px rgba(230,57,70,0.25)"
+                    : "none",
+            }}
           >
             24Hs
           </span>
 
           <span
-            className="font-mono text-[13px] font-bold tracking-[0.06em]"
-            style={{ color: trendColor }}
+            className="mt-1 font-mono text-[13px] font-bold tracking-[0.06em]"
+            style={{
+              color: trendColor,
+              textShadow:
+                trend === "up"
+                  ? "0 0 8px rgba(57,255,20,0.25)"
+                  : trend === "down"
+                    ? "0 0 8px rgba(230,57,70,0.25)"
+                    : "none",
+            }}
           >
             {formatPercent(prices.usd24hChange)}
           </span>
         </div>
 
-        <div className="relative flex-1">
+        <div className="relative ml-auto flex h-[44px] w-[220px] items-center overflow-hidden rounded-r-[12px]">
           <div
-            className="pointer-events-none absolute inset-0 rounded-md"
+            className="absolute inset-0"
             style={{
               background:
                 trend === "down"
-                  ? "linear-gradient(90deg, rgba(230,57,70,0.10) 0%, rgba(230,57,70,0.02) 100%)"
+                  ? "linear-gradient(90deg, rgba(88,12,20,0.70) 0%, rgba(70,8,15,0.55) 60%, rgba(50,6,10,0.35) 100%)"
                   : trend === "up"
-                    ? "linear-gradient(90deg, rgba(57,255,20,0.10) 0%, rgba(57,255,20,0.02) 100%)"
-                    : "linear-gradient(90deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)",
+                    ? "linear-gradient(90deg, rgba(10,55,12,0.55) 0%, rgba(8,42,10,0.40) 60%, rgba(5,30,8,0.25) 100%)"
+                    : "linear-gradient(90deg, rgba(28,28,28,0.55) 0%, rgba(18,18,18,0.35) 100%)",
             }}
           />
 
           <svg
-            viewBox="0 0 190 42"
-            className="relative z-10 h-[42px] w-[190px]"
+            viewBox="0 0 220 44"
+            className="relative z-10 h-[44px] w-[220px]"
             aria-hidden="true"
           >
             {sparkline.fillPath && (
@@ -373,17 +395,10 @@ export function MoneroTicker() {
                 d={sparkline.linePath}
                 fill="none"
                 stroke={chartStroke}
-                strokeWidth="2.2"
+                strokeWidth="2.4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                style={{
-                  filter:
-                    trend === "down"
-                      ? "drop-shadow(0 0 6px rgba(230,57,70,0.45))"
-                      : trend === "up"
-                        ? "drop-shadow(0 0 6px rgba(57,255,20,0.4))"
-                        : "drop-shadow(0 0 6px rgba(255,255,255,0.25))",
-                }}
+                style={{ filter: chartGlow }}
               />
             )}
           </svg>
