@@ -44,8 +44,8 @@ export function XmrPaymentModal({ open, onClose }: XmrPaymentModalProps) {
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-4">
-      <div className="relative w-full max-w-5xl border border-[#8B0F1A] bg-[#0a0a0a] shadow-[0_0_60px_rgba(230,57,70,0.12)]">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-black/80 backdrop-blur-sm px-4 pt-8 md:pt-12 animate-in fade-in duration-500">
+     <div className="relative w-full max-w-5xl border border-[#8B0F1A] bg-[#0a0a0a] shadow-[0_0_60px_rgba(230,57,70,0.12)] animate-in slide-in-from-top-8 fade-in duration-700">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#1a1a1a] px-5 py-4">
           <div className="flex items-center gap-3">
