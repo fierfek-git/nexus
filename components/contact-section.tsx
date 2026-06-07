@@ -33,7 +33,8 @@ export function ContactSection() {
             <p className="max-w-3xl text-[#A3A3A3] text-[12px] leading-relaxed mb-6">
               Choose the contact method that fits your needs.
               <br />
-              Use SimpleX for direct, secure, and private communication, <em>payment proof</em>, or payment hash. Use X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform.
+              Use SimpleX for direct, secure, and private communication, <em>payment proof, or payment hash.</em>
+              Use X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform.
             </p>
           </div>
 
