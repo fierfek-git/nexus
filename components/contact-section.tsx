@@ -25,10 +25,10 @@ export function ContactSection() {
         <div className="grid grid-cols-1 gap-6 items-start">
           {/* Section header */}
           <div>
-            <h2 className="text-[10px] font-mono tracking-[0.2em] text-[#E63946] uppercase mb-2">
-              Contact Us
-            </h2>
-            <div className="h-px w-8 bg-[#E63946]/40 mb-4" />
+         <h2 className="text-[13px] md:text-[15px] font-mono tracking-[0.24em] text-[#E63946] uppercase mb-2 drop-shadow-[0_0_8px_rgba(230,57,70,0.75)]">
+          Contact Us
+         </h2>
+         <div className="h-px w-16 bg-[#E63946] shadow-[0_0_12px_rgba(230,57,70,0.85)] mb-4" />
 
             <p className="max-w-3xl text-[#A3A3A3] text-[12px] leading-relaxed mb-6">
               Choose the contact method that fits your needs.
