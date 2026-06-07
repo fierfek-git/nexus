@@ -3,19 +3,19 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const spaceGrotesk = Space_Grotesk({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
 })
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',
 })
 
-const jetbrainsMono = JetBrains_Mono({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
   display: 'swap',
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   title: 'fierfek.nexus',
   description:
     'Private digital services paid with Monero/XMR. Privacy, security and operational discretion.',
-icons: {
-  icon: '/images/favicon-v2.png',
-  shortcut: '/images/favicon-v2.png',
-  apple: '/images/favicon-v2.png',
-},
+  icons: {
+    icon: '/images/favicon-v2.png',
+    shortcut: '/images/favicon-v2.png',
+    apple: '/images/favicon-v2.png',
+  },
   openGraph: {
     title: 'fierfek.nexus',
     description:
@@ -39,7 +39,7 @@ icons: {
     siteName: 'fierfek.nexus',
     images: [
       {
-        url: '/og-image.png',
+        url: '/images/logo-horizontal.png',
         width: 1200,
         height: 630,
         alt: 'fierfek.nexus',
@@ -53,7 +53,7 @@ icons: {
     title: 'fierfek.nexus',
     description:
       'Private digital services paid with Monero/XMR. Privacy, security and operational discretion.',
-    images: ['/og-image.png'],
+    images: ['/images/logo-horizontal.png'],
   },
 }
 
@@ -63,7 +63,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} bg-[#141414]`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} bg-[#141414]`}
+    >
       <body className="font-sans antialiased bg-[#141414] text-[#F2F2F2]">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
