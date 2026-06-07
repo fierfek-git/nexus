@@ -38,10 +38,10 @@ export function FaqSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         {/* Section header */}
         <div className="mb-6">
-          <h2 className="text-[10px] font-mono tracking-[0.2em] text-[#E63946] uppercase mb-2">
+          <h2 className="text-[13px] md:text-[15px] font-mono tracking-[0.24em] text-[#E63946] uppercase mb-2 drop-shadow-[0_0_8px_rgba(230,57,70,0.75)]">
             FAQ Preview
           </h2>
-          <div className="h-px w-8 bg-[#E63946]/40" />
+          <div className="h-px w-16 bg-[#E63946] shadow-[0_0_12px_rgba(230,57,70,0.85)]" />
         </div>
 
         {/* FAQ grid */}
