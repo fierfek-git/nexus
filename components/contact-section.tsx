@@ -7,7 +7,7 @@ const contactMethods = [
     alt: "Contact through SimpleX Chat",
   },
   {
-    href: "https:https://x.com/kriptoanarkisto",
+    href: "https://x.com/kriptoanarkisto",
     src: "/contact/Boton_x_com.png",
     alt: "Contact through X.com",
   },
