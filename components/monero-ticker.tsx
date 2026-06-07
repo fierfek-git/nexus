@@ -185,8 +185,8 @@ export function MoneroTicker() {
       }
     }
 
-    const width = 210
-    const height = 40
+    const width = 170
+    const height = 38
     const min = Math.min(...chart24h)
     const max = Math.max(...chart24h)
     const range = max - min || 1
@@ -330,7 +330,7 @@ export function MoneroTicker() {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="group flex h-[50px] w-[465px] items-center overflow-hidden rounded-[16px] border border-[#2a2a2a] bg-[#050505]/95 pl-3 pr-2 text-left transition-all duration-300 hover:border-[#404040]"
+        className="group flex h-[47px] w-[395px] items-center overflow-hidden rounded-[15px] border border-[#2a2a2a] bg-[#050505]/95 pl-3 pr-2 text-left transition-all duration-300 hover:border-[#404040]"
         style={{
           boxShadow:
             "0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 0 1px rgba(230,57,70,0.10), 0 0 18px rgba(230,57,70,0.08), 0 10px 26px rgba(0,0,0,0.55)",
@@ -339,7 +339,7 @@ export function MoneroTicker() {
         aria-label="Open Monero price details"
       >
         <div
-          className="mr-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#343434] bg-[#0a0a0a]"
+          className="mr-3 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#343434] bg-[#0a0a0a]"
           style={{
             boxShadow:
               "inset 0 0 0 1px rgba(255,255,255,0.05), 0 0 14px rgba(0,0,0,0.45), 0 0 10px rgba(230,57,70,0.12)",
@@ -348,13 +348,13 @@ export function MoneroTicker() {
           <Image
             src="/images/xmr-icon-red.png"
             alt="Monero"
-            width={27}
-            height={27}
-            className="h-[27px] w-[27px] object-contain"
+            width={24}
+            height={24}
+            className="h-6 w-6 object-contain"
           />
         </div>
 
-        <div className="mr-3 min-w-[120px]">
+        <div className="mr-3 min-w-[112px]">
           <div className="font-sans text-[13px] font-semibold leading-none text-[#F2F2F2]">
             Monero
           </div>
@@ -364,7 +364,7 @@ export function MoneroTicker() {
           </div>
         </div>
 
-        <div className="mr-3 flex min-w-[68px] flex-col items-start justify-center leading-none">
+        <div className="mr-2 flex min-w-[58px] flex-col items-start justify-center leading-none">
           <span
             className="font-mono text-[12px] font-bold tracking-[0.06em]"
             style={{
@@ -396,7 +396,7 @@ export function MoneroTicker() {
           </span>
         </div>
 
-        <div className="relative ml-auto flex h-[40px] w-[210px] items-center overflow-hidden rounded-r-[12px]">
+        <div className="relative ml-auto flex h-[38px] w-[170px] items-center overflow-hidden rounded-r-[12px]">
           <div
             className="absolute inset-0"
             style={{
@@ -410,8 +410,8 @@ export function MoneroTicker() {
           />
 
           <svg
-            viewBox="0 0 210 40"
-            className="relative z-10 h-[40px] w-[210px]"
+            viewBox="0 0 170 38"
+            className="relative z-10 h-[38px] w-[170px]"
             aria-hidden="true"
           >
             {sparkline.fillPath && (
