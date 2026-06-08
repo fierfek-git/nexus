@@ -1,4 +1,4 @@
-import { Shield, Lock, Scale } from "lucide-react"
+import { Shield, Lock, ClipboardCheck } from "lucide-react"
 
 export function TrustedByDesign() {
   const features = [
@@ -13,9 +13,9 @@ export function TrustedByDesign() {
       description: "Private channels, secure processes, and disciplined handling.",
     },
     {
-      icon: Scale,
-      title: "MISSION BOUNDARIES",
-      description: "Legal, scoped, and responsible execution only.",
+      icon: ClipboardCheck,
+      title: "MISSION REVIEW",
+      description: "Every request is reviewed privately before acceptance. I decide whether the mission is viable and aligned with clear terms.",
     },
   ]
 
