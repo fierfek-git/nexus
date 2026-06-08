@@ -1,21 +1,21 @@
-import { Shield, Lock, Server } from "lucide-react"
+import { Shield, Lock, Scale } from "lucide-react"
 
 export function TrustedByDesign() {
   const features = [
     {
       icon: Shield,
       title: "PRIVACY FIRST",
-      description: "Your data stays yours. We don't collect, store, or share any personal information.",
+      description: "Minimal data exposure. No unnecessary collection.",
     },
     {
       icon: Lock,
       title: "OPERATIONAL SECURITY",
-      description: "Security is process. Discretion is standard. OPSEC is culture.",
+      description: "Private channels, secure processes, and disciplined handling.",
     },
     {
-      icon: Server,
-      title: "BUILT TO LAST",
-      description: "Hardened infrastructure with redundancy, encryption, and constant vigilance.",
+      icon: Scale,
+      title: "MISSION BOUNDARIES",
+      description: "Legal, scoped, and responsible execution only.",
     },
   ]
 
@@ -30,6 +30,7 @@ export function TrustedByDesign() {
       <div className="space-y-4">
         {features.map((feature, index) => {
           const Icon = feature.icon
+
           return (
             <div key={index}>
               <div className="flex items-center gap-2 mb-1.5">
@@ -38,6 +39,7 @@ export function TrustedByDesign() {
                   {feature.title}
                 </h4>
               </div>
+
               <p className="text-[10px] text-[#A3A3A3] leading-relaxed pl-5">
                 {feature.description}
               </p>
