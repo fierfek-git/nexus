@@ -7,7 +7,7 @@ export function ServicesSection() {
         <img
           src="/images/centurion.png"
           alt="Centurion icon"
-          className="h-8 w-8 object-contain drop-shadow-[0_0_8px_rgba(230,57,70,0.65)]"
+          className="h-9 w-9 object-contain scale-110 drop-shadow-[0_0_12px_rgba(230,57,70,0.85)]"
         />
       ),
       title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
