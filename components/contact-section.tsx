@@ -20,24 +20,24 @@ const contactMethods = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-6 md:py-8 border-t border-[#1a1a1a] bg-[#0a0a0a]">
+    <section id="contact" className="target-section py-6 md:py-8 border-t border-[#1a1a1a] bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid grid-cols-1 gap-6 items-start">
           {/* Section header */}
           <div>
-         <h2 className="text-[13px] md:text-[15px] font-mono tracking-[0.24em] text-[#E63946] uppercase mb-2 drop-shadow-[0_0_8px_rgba(230,57,70,0.75)]">
-          Contact Us
-         </h2>
-         <div className="h-px w-16 bg-[#E63946] shadow-[0_0_12px_rgba(230,57,70,0.85)] mb-4" />
+            <h2 className="text-[13px] md:text-[15px] font-mono tracking-[0.24em] text-[#E63946] uppercase mb-2 drop-shadow-[0_0_8px_rgba(230,57,70,0.75)]">
+              Contact Us
+            </h2>
+            <div className="h-px w-16 bg-[#E63946] shadow-[0_0_12px_rgba(230,57,70,0.85)] mb-4" />
 
-          <p className="max-w-3xl text-[#A3A3A3] text-[12px] md:text-[13px] leading-relaxed mb-6">
-          Choose the contact method that fits your needs.
-          <br />
-          Use SimpleX for direct, secure, and private communication,{" "}
-          <em>payment proof, or payment hash.</em>
-          <br />
-          Use X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform.
-          </p>
+            <p className="max-w-3xl text-[#A3A3A3] text-[12px] md:text-[13px] leading-relaxed mb-6">
+              Choose the contact method that fits your needs.
+              <br />
+              Use SimpleX for direct, secure, and private communication,{" "}
+              <em>payment proof, or payment hash.</em>
+              <br />
+              Use X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform.
+            </p>
           </div>
 
           {/* Contact buttons */}
