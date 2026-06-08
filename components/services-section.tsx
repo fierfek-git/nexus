@@ -1,5 +1,4 @@
 import { ChevronRight } from "lucide-react"
-import Link from "next/link"
 
 export function ServicesSection() {
   const services = [
@@ -13,7 +12,8 @@ export function ServicesSection() {
       title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
       description:
         "Tailored digital and field support for demanding clients who require discretion, technical authority, banking coordination, and turnkey execution.",
-      href: "#contact",
+      href: "https://smp19.simplex.im/a#yHTqtQd6GRLoUi8SvKXbVqvmNgfKIKG4EqVpJHHncBo",
+      cta: "LEARN MORE",
     },
     {
       icon: () => (
@@ -26,7 +26,8 @@ export function ServicesSection() {
       ),
       title: "XMR PAYMENTS",
       description: "I accept Monero (XMR) for private, direct, and censorship-resistant payments.",
-      href: "#contact",
+      href: "https://www.getmonero.org/get-started/what-is-monero/",
+      cta: "LEARN MORE",
     },
     {
       icon: () => (
@@ -42,7 +43,6 @@ export function ServicesSection() {
       title: "SECURE INFRASTRUCTURE",
       description:
         "Linux servers, nodes, backups, hardening, monitoring, resilient technical environments, and privacy-oriented mobile setups.",
-      href: "#contact",
     },
   ]
 
@@ -77,13 +77,17 @@ export function ServicesSection() {
                   {service.description}
                 </p>
 
-                <Link
-                  href={service.href}
-                  className="inline-flex items-center gap-1 text-[10px] font-mono tracking-[0.15em] text-[#E63946] hover:text-[#F2F2F2] transition-colors group-hover:gap-2"
-                >
-                  LEARN MORE
-                  <ChevronRight size={12} />
-                </Link>
+                {service.href && service.cta && (
+                  <a
+                    href={service.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[10px] font-mono tracking-[0.15em] text-[#E63946] hover:text-[#F2F2F2] transition-colors group-hover:gap-2"
+                  >
+                    {service.cta}
+                    <ChevronRight size={12} />
+                  </a>
+                )}
               </div>
             )
           })}
