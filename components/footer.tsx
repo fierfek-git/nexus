@@ -8,19 +8,20 @@ export function Footer() {
     <footer className="bg-[#050505] border-t border-[#1a1a1a]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         {/* Main footer content */}
-        <div className="py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-start">
           {/* Brand column */}
-          <div>
-            <Link href="/" className="flex items-center mb-2">
+          <div className="flex items-start gap-3">
+            <Link href="/" className="shrink-0">
               <Image
                 src="/images/logo-horizontal.png"
                 alt="fierfek.nexus"
                 width={156}
                 height={39}
-                className="h-8 w-auto drop-shadow-[0_0_10px_rgba(230,57,70,0.35)]"
+                className="h-9 w-auto drop-shadow-[0_0_10px_rgba(230,57,70,0.40)]"
               />
             </Link>
-            <p className="text-[9px] text-[#A3A3A3] uppercase tracking-[0.15em] leading-relaxed">
+
+            <p className="pt-1 text-[10px] text-[#A3A3A3] uppercase tracking-[0.15em] leading-relaxed">
               Fierce by design.
               <br />
               Private by default.
@@ -32,15 +33,16 @@ export function Footer() {
             <Image
               src="/images/xmr-icon-red.png"
               alt="Monero XMR"
-              width={36}
-              height={36}
-              className="mt-0.5 h-8 w-8 shrink-0 rounded-sm drop-shadow-[0_0_12px_rgba(230,57,70,0.75)]"
+              width={44}
+              height={44}
+              className="h-10 w-10 shrink-0 rounded-sm drop-shadow-[0_0_14px_rgba(230,57,70,0.85)]"
             />
-            <div>
-              <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
+
+            <div className="pt-0.5">
+              <h4 className="text-[10px] font-mono tracking-[0.16em] text-[#F2F2F2] mb-1 uppercase">
                 We accept Monero (XMR)
               </h4>
-              <p className="text-[9px] text-[#A3A3A3] uppercase tracking-[0.1em]">
+              <p className="text-[10px] text-[#A3A3A3] uppercase tracking-[0.1em]">
                 Private. Fast. Uncensorable.
               </p>
             </div>
@@ -51,15 +53,16 @@ export function Footer() {
             <Image
               src="/images/discret_di_services.png"
               alt="Discreet Digital Services"
-              width={36}
-              height={36}
-              className="mt-0.5 h-8 w-8 shrink-0 rounded-sm drop-shadow-[0_0_12px_rgba(230,57,70,0.75)]"
+              width={44}
+              height={44}
+              className="h-10 w-10 shrink-0 rounded-sm drop-shadow-[0_0_14px_rgba(230,57,70,0.85)]"
             />
-            <div>
-              <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
+
+            <div className="pt-0.5">
+              <h4 className="text-[10px] font-mono tracking-[0.16em] text-[#F2F2F2] mb-1 uppercase">
                 Discreet Digital Services
               </h4>
-              <p className="text-[9px] text-[#A3A3A3] uppercase tracking-[0.1em]">
+              <p className="text-[10px] text-[#A3A3A3] uppercase tracking-[0.1em]">
                 Built on trust and technology.
               </p>
             </div>
@@ -70,35 +73,32 @@ export function Footer() {
             <Image
               src="/images/infra_first.png"
               alt="Infrastructure First"
-              width={36}
-              height={36}
-              className="mt-0.5 h-8 w-8 shrink-0 rounded-sm drop-shadow-[0_0_12px_rgba(230,57,70,0.75)]"
+              width={44}
+              height={44}
+              className="h-10 w-10 shrink-0 rounded-sm drop-shadow-[0_0_14px_rgba(230,57,70,0.85)]"
             />
-            <div>
-              <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
+
+            <div className="pt-0.5">
+              <h4 className="text-[10px] font-mono tracking-[0.16em] text-[#F2F2F2] mb-1 uppercase">
                 Infrastructure First.
               </h4>
-              <p className="text-[9px] text-[#A3A3A3] uppercase tracking-[0.1em]">
+              <p className="text-[10px] text-[#A3A3A3] uppercase tracking-[0.1em]">
                 Privacy Always.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Center banner under the three info columns */}
+        {/* Center banner */}
         <div className="py-3 border-t border-[#1a1a1a]">
-          <div className="grid grid-cols-1 lg:grid-cols-4">
-            <div className="hidden lg:block" />
-
-            <div className="lg:col-span-3 flex justify-center">
-              <Image
-                src="/images/center-banner.png"
-                alt="Privacy Liberty"
-                width={900}
-                height={90}
-                className="h-auto w-full max-w-[540px] opacity-90 drop-shadow-[0_0_12px_rgba(230,57,70,0.28)]"
-              />
-            </div>
+          <div className="flex justify-center">
+            <Image
+              src="/images/center-banner.png"
+              alt="Privacy Liberty"
+              width={900}
+              height={90}
+              className="h-auto w-full max-w-[560px] opacity-90 drop-shadow-[0_0_14px_rgba(230,57,70,0.32)]"
+            />
           </div>
         </div>
 
@@ -108,26 +108,26 @@ export function Footer() {
           <div className="flex items-center gap-4 md:gap-6">
             <Link
               href="#privacy"
-              className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
+              className="text-[10px] md:text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
             >
               Privacy Policy
             </Link>
             <Link
               href="#terms"
-              className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
+              className="text-[10px] md:text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
             >
               Terms of Service
             </Link>
             <Link
               href="#status"
-              className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
+              className="text-[10px] md:text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
             >
               Status
             </Link>
           </div>
 
           {/* Copyright */}
-          <div className="text-[10px] text-[#A3A3A3] text-center md:text-right">
+          <div className="text-[10px] md:text-[11px] text-[#A3A3A3] text-center md:text-right">
             <p>&copy; {currentYear} fierfek.nexus. All rights reserved.</p>
             <p className="mt-0.5 text-[#666]">Not affiliated with Monero.</p>
           </div>
