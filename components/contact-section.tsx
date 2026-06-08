@@ -30,12 +30,14 @@ export function ContactSection() {
          </h2>
          <div className="h-px w-16 bg-[#E63946] shadow-[0_0_12px_rgba(230,57,70,0.85)] mb-4" />
 
-           <p className="max-w-3xl text-[#A3A3A3] text-[12px] md:text-[13px] leading-relaxed mb-6">
-            Choose the contact method that fits your needs.
-            <br />
-            Use SimpleX for direct, secure, and private communication, <em>payment proof</em>, or payment hash.{" "}
-            Use X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform.
-            </p>
+          <p className="max-w-3xl text-[#A3A3A3] text-[12px] md:text-[13px] leading-relaxed mb-6">
+          Choose the contact method that fits your needs.
+          <br />
+          Use SimpleX for direct, secure, and private communication,{" "}
+          <em>payment proof, or payment hash.</em>
+          <br />
+          Use X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform.
+          </p>
           </div>
 
           {/* Contact buttons */}
