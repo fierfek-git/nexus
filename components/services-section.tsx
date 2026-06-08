@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { ChevronRight } from "lucide-react"
 
 export function ServicesSection() {
@@ -18,11 +17,9 @@ export function ServicesSection() {
     },
     {
       icon: () => (
-        <Image
+        <img
           src="/images/XMR_icon_BLACK.png"
           alt="Monero XMR"
-          width={28}
-          height={28}
           className="h-7 w-7 object-contain drop-shadow-[0_0_8px_rgba(230,57,70,0.65)]"
         />
       ),
