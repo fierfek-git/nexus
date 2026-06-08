@@ -1,140 +1,89 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
-const heroSignals = [
-  { label: "CONNECTION", value: "SECURE" },
-  { label: "PAYMENT", value: "XMR ONLY" },
-  { label: "OPERATION", value: "ANONYMOUS" },
-]
-
 export function HeroSection() {
   return (
-    <section className="relative min-h-[70vh] overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-[#0a0a0a]" />
+    <section className="relative overflow-hidden border-b border-red-950/40 bg-black">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.16),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
 
-      {/* Grid pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-100" />
-
-      {/* Red radial glow */}
-      <div className="absolute inset-0 hero-radial" />
-
-      {/* Geometric HUD lines */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="transparent" />
-            <stop offset="50%" stopColor="#E63946" />
-            <stop offset="100%" stopColor="transparent" />
-          </linearGradient>
-        </defs>
-
-        <line x1="0" y1="20%" x2="40%" y2="20%" stroke="url(#lineGrad)" strokeWidth="1" />
-        <line x1="60%" y1="15%" x2="100%" y2="15%" stroke="url(#lineGrad)" strokeWidth="1" />
-        <line x1="0" y1="80%" x2="35%" y2="80%" stroke="url(#lineGrad)" strokeWidth="1" />
-
-        <path
-          d="M 50 50 L 50 20 L 80 20"
-          fill="none"
-          stroke="#E63946"
-          strokeWidth="1"
-          opacity="0.3"
-        />
-        <path
-          d="M 95% 50 L 95% 80 L 92% 80"
-          fill="none"
-          stroke="#E63946"
-          strokeWidth="1"
-          opacity="0.3"
-        />
-      </svg>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-4 items-center min-h-[60vh]">
+      <div className="container relative mx-auto px-4 py-14 md:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.95fr_0.35fr]">
           {/* Left content */}
-          <div className="lg:col-span-5 relative z-20">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-4 mb-4">
-              <span className="text-[10px] font-mono tracking-[0.2em] text-[#E63946] uppercase">
-                Private by design.
-              </span>
-              <span className="text-[10px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">
-                Paid with XMR.
-              </span>
-              <div className="hidden md:block h-px flex-1 max-w-24 bg-gradient-to-r from-[#E63946]/60 to-transparent" />
+          <div className="max-w-2xl">
+            <div className="mb-6 flex items-center gap-4 text-[10px] uppercase tracking-[0.35em] text-zinc-400">
+              <span className="text-red-400">Private by design.</span>
+              <span>Paid with XMR.</span>
+              <span className="hidden h-px w-20 bg-red-700/70 sm:block" />
             </div>
 
-            {/* Main Headline */}
-            <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-4 tracking-tight">
-              <span className="text-[#F2F2F2]">Private executive operations.</span>
+            <h1 className="max-w-3xl text-5xl font-bold leading-[0.95] tracking-tight text-white sm:text-6xl md:text-7xl">
+              Private executive operations.
               <br />
-              <span className="text-[#F2F2F2]">Paid with </span>
-              <span className="text-[#E63946] glow-red-text">Monero.</span>
+              Paid with <span className="text-red-500">Monero.</span>
             </h1>
 
-            {/* Subtitle */}
-            <p className="text-[#A3A3A3] text-sm md:text-base leading-relaxed mb-6 max-w-md">
+            <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400 md:text-xl">
               Discreet digital, financial, and field support for demanding clients who require privacy,
               coordination, and turnkey execution.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 mb-8">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="#services"
-                className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[#E63946] text-[#F2F2F2] font-mono text-[11px] tracking-[0.15em] uppercase rounded-sm hover:bg-[#8B0F1A] transition-all glow-red-subtle"
+                className="inline-flex items-center gap-2 rounded-sm border border-red-500 bg-red-500 px-6 py-4 text-xs uppercase tracking-[0.28em] text-white transition hover:bg-red-400"
               >
                 View Services
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
 
               <Link
                 href="#process"
-                className="group inline-flex items-center gap-2 px-5 py-2.5 border border-[#2a2a2a] text-[#F2F2F2] font-mono text-[11px] tracking-[0.15em] uppercase rounded-sm hover:border-[#E63946]/40 transition-all bg-[#0a0a0a]/50"
+                className="inline-flex items-center gap-2 rounded-sm border border-zinc-800 px-6 py-4 text-xs uppercase tracking-[0.28em] text-zinc-200 transition hover:border-red-500 hover:text-white"
               >
-                How it works
-                <span className="text-[#E63946]">{`<>`}</span>
+                How It Works
+                <span className="text-red-500">&lt;&gt;</span>
               </Link>
             </div>
           </div>
 
           {/* Center image */}
-          <div className="lg:col-span-5 relative order-first lg:order-none">
-            <div className="absolute inset-0 bg-gradient-radial from-[#8B0F1A]/50 via-[#E63946]/10 to-transparent blur-3xl scale-110" />
-
-            <div className="relative aspect-square max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+          <div className="relative mx-auto w-full max-w-[560px]">
+            <div className="absolute inset-0 bg-red-600/20 blur-3xl" />
+            <div className="relative border border-red-950/50 bg-black/60 p-2 shadow-[0_0_60px_rgba(220,38,38,0.18)]">
               <Image
                 src="/images/hero-character.png"
-                alt="fierfek.nexus - Private Executive Operations"
-                fill
-                className="object-contain drop-shadow-[0_0_40px_rgba(230,57,70,0.3)]"
+                alt="Fierfek hero"
+                width={900}
+                height={1100}
+                className="h-auto w-full object-cover"
                 priority
               />
             </div>
           </div>
 
-          {/* Right side text-only signals */}
-          <div className="hidden lg:flex lg:col-span-2 items-center justify-end">
-            <div className="flex flex-col items-end justify-center gap-0 text-right pr-2">
-              {heroSignals.map((item, index) => (
-                <div key={item.label} className="flex flex-col items-end">
-                  <div className="text-[11px] font-mono tracking-[0.32em] text-[#A3A3A3] uppercase">
-                    {item.label}
-                  </div>
+          {/* Right vertical highlights */}
+          <div className="mx-auto flex h-full min-h-[420px] w-full max-w-[150px] flex-col items-center justify-center gap-10 text-center">
+            <div className="space-y-2">
+              <p className="text-[10px] uppercase tracking-[0.38em] text-zinc-400">EXECUTIVE</p>
+              <p className="text-sm uppercase tracking-[0.28em] text-red-500">CONCIERGE</p>
+            </div>
 
-                  <div className="mt-2 text-[14px] font-mono tracking-[0.28em] text-[#E63946] uppercase drop-shadow-[0_0_10px_rgba(230,57,70,0.35)]">
-                    {item.value}
-                  </div>
+            <div className="h-14 w-px bg-red-700/50" />
 
-                  {index < heroSignals.length - 1 && (
-                    <div className="my-8 h-16 w-px bg-gradient-to-b from-transparent via-[#E63946]/45 to-transparent" />
-                  )}
-                </div>
-              ))}
+            <div className="space-y-2">
+              <p className="text-[10px] uppercase tracking-[0.38em] text-zinc-400">PAYMENT</p>
+              <p className="text-sm uppercase tracking-[0.28em] text-red-500">XMR ONLY</p>
+            </div>
+
+            <div className="h-14 w-px bg-red-700/50" />
+
+            <div className="space-y-2">
+              <p className="text-[10px] uppercase tracking-[0.38em] text-zinc-400">OPERATION</p>
+              <p className="text-sm uppercase tracking-[0.28em] text-red-500">ANONYMOUS</p>
             </div>
           </div>
         </div>
