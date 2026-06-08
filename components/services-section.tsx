@@ -2,22 +2,20 @@ import { ChevronRight } from "lucide-react"
 
 export function ServicesSection() {
   const services = [
-{
-  icon: () => (
-    <Image
-      src="/images/centurion.png"
-      alt="Centurion icon"
-      width={38}
-      height={38}
-      className="w-[38px] h-[38px] object-contain"
-    />
-  ),
-  title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
-  description:
-    "Tailored digital and field support for demanding clients who require discretion, technical authority, banking coordination, and turnkey execution.",
-  link: "/contact",
-  cta: "LEARN MORE",
-},
+    {
+      icon: () => (
+        <img
+          src="/images/centurion.png"
+          alt="Centurion icon"
+          className="h-7 w-7 object-contain drop-shadow-[0_0_8px_rgba(230,57,70,0.65)]"
+        />
+      ),
+      title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
+      description:
+        "Tailored digital and field support for demanding clients who require discretion, technical authority, banking coordination, and turnkey execution.",
+      href: "https://smp19.simplex.im/a#yHTqtQd6GRLoUi8SvKXbVqvmNgfKIKG4EqVpJHHncBo",
+      cta: "LEARN MORE",
+    },
     {
       icon: () => (
         <img
