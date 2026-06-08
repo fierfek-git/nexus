@@ -16,9 +16,9 @@ export function Footer() {
               <Image
                 src="/images/logo-horizontal.png"
                 alt="fierfek.nexus"
-                width={120}
-                height={30}
-                className="h-6 w-auto"
+                width={156}
+                height={39}
+                className="h-8 w-auto drop-shadow-[0_0_10px_rgba(230,57,70,0.35)]"
               />
             </Link>
             <p className="text-[9px] text-[#A3A3A3] uppercase tracking-[0.15em] leading-relaxed">
@@ -30,10 +30,13 @@ export function Footer() {
 
           {/* Info columns */}
           <div className="flex items-start gap-2.5">
-            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="12" cy="12" r="10" />
-              <text x="12" y="16" fontSize="10" textAnchor="middle" fill="currentColor" fontWeight="bold">M</text>
-            </svg>
+            <Image
+              src="/images/xmr-icon-red.png"
+              alt="Monero XMR"
+              width={22}
+              height={22}
+              className="mt-0.5 h-5 w-5 shrink-0 rounded-sm drop-shadow-[0_0_8px_rgba(230,57,70,0.65)]"
+            />
             <div>
               <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
                 We accept Monero (XMR)
@@ -45,7 +48,7 @@ export function Footer() {
           </div>
 
           <div className="flex items-start gap-2.5">
-            <Shield className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0" />
+            <Shield className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0 drop-shadow-[0_0_8px_rgba(230,57,70,0.55)]" />
             <div>
               <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
                 Discreet Digital Services
@@ -57,7 +60,7 @@ export function Footer() {
           </div>
 
           <div className="flex items-start gap-2.5">
-            <Code className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0" />
+            <Code className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0 drop-shadow-[0_0_8px_rgba(230,57,70,0.55)]" />
             <div>
               <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
                 Infrastructure First.
