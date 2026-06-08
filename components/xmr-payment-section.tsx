@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { ChevronRight, ClipboardCheck } from "lucide-react"
 
 export function XmrPaymentSection() {
@@ -27,13 +26,15 @@ export function XmrPaymentSection() {
       </p>
 
       {/* CTA */}
-      <Link
-        href="#contact"
+      <a
+        href="https://xmrbazaar.com/user/Fierfek/"
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 w-full py-2.5 border border-[#1a1a1a] rounded-sm text-[10px] font-mono tracking-[0.15em] text-[#F2F2F2] hover:border-[#E63946]/30 transition-colors bg-[#141414]/50"
       >
         START PROCESS
         <ChevronRight size={12} />
-      </Link>
+      </a>
     </div>
   )
 }
