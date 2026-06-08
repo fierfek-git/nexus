@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Shield, Code } from "lucide-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -9,7 +8,7 @@ export function Footer() {
     <footer className="bg-[#050505] border-t border-[#1a1a1a]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         {/* Main footer content */}
-        <div className="py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="py-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {/* Brand column */}
           <div>
             <Link href="/" className="flex items-center mb-2">
@@ -28,7 +27,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Info columns */}
+          {/* Monero column */}
           <div className="flex items-start gap-2.5">
             <Image
               src="/images/xmr-icon-red.png"
@@ -47,8 +46,15 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Discreet digital services */}
           <div className="flex items-start gap-2.5">
-            <Shield className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0 drop-shadow-[0_0_8px_rgba(230,57,70,0.55)]" />
+            <Image
+              src="/images/discret_di_services.png"
+              alt="Discreet Digital Services"
+              width={30}
+              height={30}
+              className="mt-0.5 h-7 w-7 shrink-0 rounded-sm drop-shadow-[0_0_10px_rgba(230,57,70,0.75)]"
+            />
             <div>
               <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
                 Discreet Digital Services
@@ -59,8 +65,15 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Infrastructure first */}
           <div className="flex items-start gap-2.5">
-            <Code className="w-3.5 h-3.5 text-[#E63946] mt-0.5 shrink-0 drop-shadow-[0_0_8px_rgba(230,57,70,0.55)]" />
+            <Image
+              src="/images/infra_first.png"
+              alt="Infrastructure First"
+              width={30}
+              height={30}
+              className="mt-0.5 h-7 w-7 shrink-0 rounded-sm drop-shadow-[0_0_10px_rgba(230,57,70,0.75)]"
+            />
             <div>
               <h4 className="text-[9px] font-mono tracking-[0.15em] text-[#F2F2F2] mb-0.5 uppercase">
                 Infrastructure First.
@@ -69,6 +82,19 @@ export function Footer() {
                 Privacy Always.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Center banner */}
+        <div className="py-4 border-t border-[#1a1a1a]">
+          <div className="flex justify-center">
+            <Image
+              src="/images/center-banner.png"
+              alt="Privacy Liberty"
+              width={1200}
+              height={120}
+              className="h-auto w-full max-w-[760px] opacity-95 drop-shadow-[0_0_14px_rgba(230,57,70,0.30)]"
+            />
           </div>
         </div>
 
