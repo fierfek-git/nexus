@@ -3,9 +3,9 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 const heroSignals = [
-  { label: "ACCESS", value: "PRIVATE" },
+  { label: "CONNECTION", value: "SECURE" },
   { label: "PAYMENT", value: "XMR ONLY" },
-  { label: "EXECUTION", value: "DISCREET" },
+  { label: "OPERATION", value: "DISCREET" },
 ]
 
 export function HeroSection() {
@@ -21,7 +21,10 @@ export function HeroSection() {
       <div className="absolute inset-0 hero-radial" />
 
       {/* Geometric HUD lines */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-20"
+        preserveAspectRatio="none"
+      >
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
@@ -34,8 +37,20 @@ export function HeroSection() {
         <line x1="60%" y1="15%" x2="100%" y2="15%" stroke="url(#lineGrad)" strokeWidth="1" />
         <line x1="0" y1="80%" x2="35%" y2="80%" stroke="url(#lineGrad)" strokeWidth="1" />
 
-        <path d="M 50 50 L 50 20 L 80 20" fill="none" stroke="#E63946" strokeWidth="1" opacity="0.3" />
-        <path d="M 95% 50 L 95% 80 L 92% 80" fill="none" stroke="#E63946" strokeWidth="1" opacity="0.3" />
+        <path
+          d="M 50 50 L 50 20 L 80 20"
+          fill="none"
+          stroke="#E63946"
+          strokeWidth="1"
+          opacity="0.3"
+        />
+        <path
+          d="M 95% 50 L 95% 80 L 92% 80"
+          fill="none"
+          stroke="#E63946"
+          strokeWidth="1"
+          opacity="0.3"
+        />
       </svg>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-8">
@@ -63,7 +78,8 @@ export function HeroSection() {
 
             {/* Subtitle */}
             <p className="text-[#A3A3A3] text-sm md:text-base leading-relaxed mb-6 max-w-md">
-              Discreet digital, financial, and field support for demanding clients who require privacy, coordination, and turnkey execution.
+              Discreet digital, financial, and field support for demanding clients who require privacy,
+              coordination, and turnkey execution.
             </p>
 
             {/* CTA Buttons */}
@@ -101,21 +117,21 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right side premium signals */}
-          <div className="hidden lg:flex lg:col-span-2 flex-col items-end justify-center gap-0 text-right">
-            <div className="relative border border-[#E63946]/25 bg-[#050505]/25 px-7 py-8 rounded-sm shadow-[0_0_24px_rgba(230,57,70,0.10)]">
+          {/* Right side text-only signals */}
+          <div className="hidden lg:flex lg:col-span-2 items-center justify-end">
+            <div className="flex flex-col items-end justify-center gap-0 text-right pr-2">
               {heroSignals.map((item, index) => (
                 <div key={item.label} className="flex flex-col items-end">
-                  <div className="text-[10px] font-mono tracking-[0.35em] text-[#A3A3A3] uppercase">
+                  <div className="text-[11px] font-mono tracking-[0.32em] text-[#A3A3A3] uppercase">
                     {item.label}
                   </div>
 
-                  <div className="mt-2 text-[12px] font-mono tracking-[0.28em] text-[#E63946] uppercase drop-shadow-[0_0_12px_rgba(230,57,70,0.45)]">
+                  <div className="mt-2 text-[14px] font-mono tracking-[0.28em] text-[#E63946] uppercase drop-shadow-[0_0_10px_rgba(230,57,70,0.35)]">
                     {item.value}
                   </div>
 
                   {index < heroSignals.length - 1 && (
-                    <div className="my-7 h-14 w-px bg-gradient-to-b from-transparent via-[#E63946]/45 to-transparent" />
+                    <div className="my-8 h-16 w-px bg-gradient-to-b from-transparent via-[#E63946]/45 to-transparent" />
                   )}
                 </div>
               ))}
