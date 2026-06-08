@@ -7,13 +7,13 @@ export function HeroSection() {
     <section className="relative min-h-[70vh] overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-[#0a0a0a]" />
-      
+
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-100" />
-      
+
       {/* Red radial glow */}
       <div className="absolute inset-0 hero-radial" />
-      
+
       {/* Geometric HUD lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" preserveAspectRatio="none">
         <defs>
@@ -49,7 +49,7 @@ export function HeroSection() {
 
             {/* Main Headline */}
             <h1 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] mb-4 tracking-tight">
-              <span className="text-[#F2F2F2]">Private digital services.</span>
+              <span className="text-[#F2F2F2]">Private executive operations.</span>
               <br />
               <span className="text-[#F2F2F2]">Paid with </span>
               <span className="text-[#E63946] glow-red-text">Monero.</span>
@@ -57,9 +57,7 @@ export function HeroSection() {
 
             {/* Subtitle */}
             <p className="text-[#A3A3A3] text-sm md:text-base leading-relaxed mb-6 max-w-md">
-              Discreet solutions for privacy, security, and infrastructure.
-              <br />
-              Zero compromises. No tracking. No logs.
+              Discreet digital, financial, and field support for demanding clients who require privacy, coordination, and turnkey execution.
             </p>
 
             {/* CTA Buttons */}
@@ -85,12 +83,12 @@ export function HeroSection() {
           <div className="lg:col-span-5 relative order-first lg:order-none">
             {/* Glow effect behind image */}
             <div className="absolute inset-0 bg-gradient-radial from-[#8B0F1A]/50 via-[#E63946]/10 to-transparent blur-3xl scale-110" />
-            
+
             {/* Character image */}
             <div className="relative aspect-square max-w-sm md:max-w-md lg:max-w-lg mx-auto">
               <Image
                 src="/images/hero-character.png"
-                alt="fierfek.nexus - Private Digital Services"
+                alt="fierfek.nexus - Private Executive Operations"
                 fill
                 className="object-contain drop-shadow-[0_0_40px_rgba(230,57,70,0.3)]"
                 priority
@@ -106,13 +104,13 @@ export function HeroSection() {
             </div>
             <div className="w-px h-12 bg-gradient-to-b from-[#E63946]/40 to-transparent" />
             <div className="space-y-1">
-              <div className="text-[9px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">Encryption</div>
-              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">XMR</div>
+              <div className="text-[9px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">Payment</div>
+              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">XMR Only</div>
             </div>
             <div className="w-px h-12 bg-gradient-to-b from-[#E63946]/40 to-transparent" />
             <div className="space-y-1">
               <div className="text-[9px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">Operation</div>
-              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">Anonymous</div>
+              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">Discreet</div>
             </div>
           </div>
         </div>
