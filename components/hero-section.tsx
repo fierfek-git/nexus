@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react"
 const heroSignals = [
   { label: "CONNECTION", value: "SECURE" },
   { label: "PAYMENT", value: "XMR ONLY" },
-  { label: "OPERATION", value: "DISCREET" },
+  { label: "OPERATION", value: "ANONYMOUS" },
 ]
 
 export function HeroSection() {
