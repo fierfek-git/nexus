@@ -2,19 +2,22 @@ import { ChevronRight } from "lucide-react"
 
 export function ServicesSection() {
   const services = [
-    {
-      icon: () => (
-        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M12 3l7 4v5c0 4.5-2.9 7.7-7 9-4.1-1.3-7-4.5-7-9V7l7-4z" />
-          <path d="M9 12l2 2 4-4" />
-        </svg>
-      ),
-      title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
-      description:
-        "Tailored digital and field support for demanding clients who require discretion, technical authority, banking coordination, and turnkey execution.",
-      href: "https://smp19.simplex.im/a#yHTqtQd6GRLoUi8SvKXbVqvmNgfKIKG4EqVpJHHncBo",
-      cta: "LEARN MORE",
-    },
+{
+  icon: () => (
+    <Image
+      src="/images/centurion.png"
+      alt="Centurion icon"
+      width={38}
+      height={38}
+      className="w-[38px] h-[38px] object-contain"
+    />
+  ),
+  title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
+  description:
+    "Tailored digital and field support for demanding clients who require discretion, technical authority, banking coordination, and turnkey execution.",
+  link: "/contact",
+  cta: "LEARN MORE",
+},
     {
       icon: () => (
         <img
