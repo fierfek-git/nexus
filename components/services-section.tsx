@@ -18,7 +18,7 @@ export function ServicesSection() {
     {
       icon: () => (
         <img
-          src="/images/XMR_icon_BLACK.png"
+          src="/images/xmr-icon-black.png"
           alt="Monero XMR"
           className="h-7 w-7 object-contain drop-shadow-[0_0_8px_rgba(230,57,70,0.65)]"
         />
