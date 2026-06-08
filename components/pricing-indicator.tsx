@@ -9,7 +9,7 @@ export function PricingIndicator() {
 
   return (
     <>
-      <div className="cyber-card corner-accent p-5 rounded-sm relative">
+      <div id="pricing" className="target-section cyber-card corner-accent p-5 rounded-sm relative">
         {/* Section header */}
         <h3 className="text-[10px] font-mono tracking-[0.2em] text-[#E63946] uppercase mb-5">
           Scope-Based Pricing
