@@ -1,4 +1,4 @@
-import { EyeOff, Shield, MessageSquare } from "lucide-react"
+import { EyeOff, Blocks, CircleDollarSign, MessageSquare } from "lucide-react"
 
 export function TrustBadges() {
   const badges = [
@@ -7,24 +7,11 @@ export function TrustBadges() {
       label: "NO LOGS",
     },
     {
-      icon: () => (
-        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
-          <line x1="7" y1="1" x2="7" y2="4" />
-          <line x1="17" y1="1" x2="17" y2="4" />
-          <line x1="7" y1="20" x2="7" y2="23" />
-          <line x1="17" y1="20" x2="17" y2="23" />
-        </svg>
-      ),
+      icon: Blocks,
       label: "NO TRACKING",
     },
     {
-      icon: () => (
-        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-          <text x="12" y="16" fontSize="10" textAnchor="middle" fill="currentColor" fontWeight="bold">M</text>
-        </svg>
-      ),
+      icon: CircleDollarSign,
       label: "XMR ONLY",
     },
     {
@@ -34,19 +21,28 @@ export function TrustBadges() {
   ]
 
   return (
-    <section className="border-y border-[#1a1a1a] bg-[#0a0a0a]">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-4">
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+    <section className="py-5 md:py-6 bg-[#0a0a0a]">
+      <div className="max-w-4xl mx-auto px-4 md:px-8">
+        <div className="group mx-auto flex flex-wrap items-center justify-center gap-4 md:gap-7 rounded-sm border border-[#1a1a1a] bg-[#050505]/70 px-5 py-4 transition-all duration-300 ease-out hover:scale-105 hover:border-[#E63946]/40 hover:bg-[#141414]/70 hover:shadow-[0_0_22px_rgba(230,57,70,0.18)]">
           {badges.map((badge, index) => {
             const Icon = badge.icon
+
             return (
-              <div key={index} className="flex items-center gap-2">
-                <div className="flex items-center gap-2 text-[#A3A3A3]">
-                  <Icon className="w-3.5 h-3.5" />
-                  <span className="text-[10px] font-mono tracking-[0.15em]">{badge.label}</span>
-                </div>
+              <div key={badge.label} className="flex items-center gap-2">
+                <Icon
+                  size={13}
+                  strokeWidth={1.5}
+                  className="text-[#A3A3A3] transition-colors duration-300 group-hover:text-[#E63946]"
+                />
+
+                <span className="text-[9px] md:text-[10px] font-mono tracking-[0.22em] text-[#A3A3A3] uppercase transition-colors duration-300 group-hover:text-[#F2F2F2]">
+                  {badge.label}
+                </span>
+
                 {index < badges.length - 1 && (
-                  <span className="hidden md:block ml-4 w-1 h-1 rounded-full bg-[#E63946]/40" />
+                  <span className="ml-3 md:ml-5 text-[#8B0F1A] transition-colors duration-300 group-hover:text-[#E63946]">
+                    •
+                  </span>
                 )}
               </div>
             )
