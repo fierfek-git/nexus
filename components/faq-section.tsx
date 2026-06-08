@@ -7,37 +7,37 @@ const faqs = [
   {
     question: "What payment methods do you accept?",
     answer:
-      "We exclusively accept Monero (XMR) for all payments. This ensures maximum privacy and security for both parties. No exceptions.",
+      "We accept Monero (XMR) for available services. XMR allows private, direct, and censorship-resistant payments. We do not process card payments or traditional payment gateways.",
   },
   {
-    question: "Do you keep any logs?",
+    question: "Do you collect data, logs, or metadata?",
     answer:
-      "No. We operate on a strict zero-logs policy. We do not collect, store, or share any personal information or usage data.",
+      "No. We do not operate user accounts, login panels, or internal customer profiles. We do not request unnecessary personal data, and we do not collect logs, browsing history, IP addresses, or metadata for commercial tracking. Communication is limited to the channel chosen by the user.",
   },
   {
     question: "How do I get started?",
     answer:
-      "Contact us through our secure communication channels. We'll discuss your requirements, provide a quote, and guide you through the onboarding process.",
+      "Choose the contact channel that fits your needs: SimpleX for private communication, X for quick public contact, or XMRBazaar for inquiries related to services offered on that platform. Then we review the request, scope, price, and delivery method.",
   },
   {
-    question: "Is my data safe?",
+    question: "Can you help improve the privacy of my Bitcoin or crypto funds?",
     answer:
-      "Absolutely. We implement industry-leading security practices, end-to-end encryption, and hardened infrastructure to protect your data at all times.",
+      "We can provide legitimate financial privacy guidance: self-custody best practices, identity separation, wallet hygiene, public exposure reduction, responsible use of privacy tools, and protection against abusive surveillance by authoritarian governments or invasive companies. We do not help hide illicit funds, evade authorities, or erase traces of crimes.",
   },
   {
     question: "How long does delivery take?",
     answer:
-      "Delivery times vary depending on the service and complexity. We'll provide an estimated timeline during your initial consultation.",
+      "Delivery time depends on the type of service, technical complexity, and availability. Before starting, we define the scope, price, and estimated delivery time. Simple services may be completed quickly; custom work requires prior evaluation.",
   },
   {
-    question: "Can I request custom services?",
+    question: "Can I request a custom service?",
     answer:
-      "Yes. We offer custom solutions tailored to your specific needs. Contact us to discuss your requirements and we'll create a proposal.",
+      "Yes. We can evaluate custom services related to digital privacy, technical infrastructure, operational security, automation, digital support, and technical consulting. If the request is viable and legal, we provide a clear proposal before any payment.",
   },
 ]
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(3)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section id="faq" className="py-6 md:py-8 bg-[#0a0a0a]">
@@ -56,7 +56,10 @@ export function FaqSection() {
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-[#141414]/50 transition-colors"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                <span className="text-[12px] text-[#F2F2F2] pr-4">{faq.question}</span>
+                <span className="text-[12px] md:text-[13px] text-[#F2F2F2] pr-4 leading-relaxed">
+                  {faq.question}
+                </span>
+
                 {openIndex === index ? (
                   <ChevronUp size={14} className="text-[#E63946] shrink-0" />
                 ) : (
@@ -66,7 +69,7 @@ export function FaqSection() {
 
               {openIndex === index && (
                 <div className="px-4 pb-4 border-t border-[#1a1a1a]">
-                  <p className="text-[11px] text-[#A3A3A3] leading-relaxed pt-3">
+                  <p className="text-[11px] md:text-[12px] text-[#A3A3A3] leading-relaxed pt-3">
                     {faq.answer}
                   </p>
                 </div>
