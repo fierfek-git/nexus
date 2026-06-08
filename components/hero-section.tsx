@@ -2,6 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
+const heroSignals = [
+  { label: "ACCESS", value: "PRIVATE" },
+  { label: "PAYMENT", value: "XMR ONLY" },
+  { label: "EXECUTION", value: "DISCREET" },
+]
+
 export function HeroSection() {
   return (
     <section className="relative min-h-[70vh] overflow-hidden">
@@ -23,20 +29,20 @@ export function HeroSection() {
             <stop offset="100%" stopColor="transparent" />
           </linearGradient>
         </defs>
-        {/* Horizontal lines */}
+
         <line x1="0" y1="20%" x2="40%" y2="20%" stroke="url(#lineGrad)" strokeWidth="1" />
         <line x1="60%" y1="15%" x2="100%" y2="15%" stroke="url(#lineGrad)" strokeWidth="1" />
         <line x1="0" y1="80%" x2="35%" y2="80%" stroke="url(#lineGrad)" strokeWidth="1" />
-        {/* Corner brackets */}
+
         <path d="M 50 50 L 50 20 L 80 20" fill="none" stroke="#E63946" strokeWidth="1" opacity="0.3" />
         <path d="M 95% 50 L 95% 80 L 92% 80" fill="none" stroke="#E63946" strokeWidth="1" opacity="0.3" />
       </svg>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-4 items-center min-h-[60vh]">
-          {/* Left content - 5 columns */}
+          {/* Left content */}
           <div className="lg:col-span-5 relative z-20">
-            {/* Eyebrow with line */}
+            {/* Eyebrow */}
             <div className="flex items-center gap-4 mb-4">
               <span className="text-[10px] font-mono tracking-[0.2em] text-[#E63946] uppercase">
                 Private by design.
@@ -69,6 +75,7 @@ export function HeroSection() {
                 View Services
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
+
               <Link
                 href="#process"
                 className="group inline-flex items-center gap-2 px-5 py-2.5 border border-[#2a2a2a] text-[#F2F2F2] font-mono text-[11px] tracking-[0.15em] uppercase rounded-sm hover:border-[#E63946]/40 transition-all bg-[#0a0a0a]/50"
@@ -79,12 +86,10 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Center - Hero Image - 5 columns */}
+          {/* Center image */}
           <div className="lg:col-span-5 relative order-first lg:order-none">
-            {/* Glow effect behind image */}
             <div className="absolute inset-0 bg-gradient-radial from-[#8B0F1A]/50 via-[#E63946]/10 to-transparent blur-3xl scale-110" />
 
-            {/* Character image */}
             <div className="relative aspect-square max-w-sm md:max-w-md lg:max-w-lg mx-auto">
               <Image
                 src="/images/hero-character.png"
@@ -96,21 +101,24 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right side labels - 2 columns */}
-          <div className="hidden lg:flex lg:col-span-2 flex-col items-end justify-center gap-8 text-right">
-            <div className="space-y-1">
-              <div className="text-[9px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">Connection</div>
-              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">Secure</div>
-            </div>
-            <div className="w-px h-12 bg-gradient-to-b from-[#E63946]/40 to-transparent" />
-            <div className="space-y-1">
-              <div className="text-[9px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">Payment</div>
-              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">XMR Only</div>
-            </div>
-            <div className="w-px h-12 bg-gradient-to-b from-[#E63946]/40 to-transparent" />
-            <div className="space-y-1">
-              <div className="text-[9px] font-mono tracking-[0.2em] text-[#A3A3A3] uppercase">Operation</div>
-              <div className="text-[10px] font-mono tracking-[0.15em] text-[#E63946] uppercase">Discreet</div>
+          {/* Right side premium signals */}
+          <div className="hidden lg:flex lg:col-span-2 flex-col items-end justify-center gap-0 text-right">
+            <div className="relative border border-[#E63946]/25 bg-[#050505]/25 px-7 py-8 rounded-sm shadow-[0_0_24px_rgba(230,57,70,0.10)]">
+              {heroSignals.map((item, index) => (
+                <div key={item.label} className="flex flex-col items-end">
+                  <div className="text-[10px] font-mono tracking-[0.35em] text-[#A3A3A3] uppercase">
+                    {item.label}
+                  </div>
+
+                  <div className="mt-2 text-[12px] font-mono tracking-[0.28em] text-[#E63946] uppercase drop-shadow-[0_0_12px_rgba(230,57,70,0.45)]">
+                    {item.value}
+                  </div>
+
+                  {index < heroSignals.length - 1 && (
+                    <div className="my-7 h-14 w-px bg-gradient-to-b from-transparent via-[#E63946]/45 to-transparent" />
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
