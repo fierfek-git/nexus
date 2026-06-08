@@ -6,14 +6,14 @@ export function ServicesSection() {
     {
       icon: () => (
         <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="3" y="11" width="18" height="11" rx="2" />
-          <path d="M7 11V7a5 5 0 0110 0v4" />
-          <circle cx="12" cy="16" r="1" fill="currentColor" />
+          <path d="M12 3l7 4v5c0 4.5-2.9 7.7-7 9-4.1-1.3-7-4.5-7-9V7l7-4z" />
+          <path d="M9 12l2 2 4-4" />
         </svg>
       ),
-      title: "PRIVATE SERVICES",
-      description: "Digital services crafted for privacy by design. No tracking. No logs. No compromises.",
-      href: "#services",
+      title: "EXECUTIVE CONCIERGE & PRIVATE OPERATIONS",
+      description:
+        "Tailored digital and field support for demanding clients who require discretion, technical authority, banking coordination, and turnkey execution.",
+      href: "#contact",
     },
     {
       icon: () => (
@@ -25,8 +25,8 @@ export function ServicesSection() {
         </svg>
       ),
       title: "XMR PAYMENTS",
-      description: "We accept Monero (XMR) for private, uncensorable payments.",
-      href: "#payment",
+      description: "I accept Monero (XMR) for private, direct, and censorship-resistant payments.",
+      href: "#contact",
     },
     {
       icon: () => (
@@ -39,9 +39,10 @@ export function ServicesSection() {
           <line x1="10" y1="18" x2="18" y2="18" />
         </svg>
       ),
-      title: "INFRASTRUCTURE",
-      description: "Hardened systems. Redundant. Encrypted. Built for reliability.",
-      href: "#infrastructure",
+      title: "SECURE INFRASTRUCTURE",
+      description:
+        "Linux servers, nodes, backups, hardening, monitoring, resilient technical environments, and privacy-oriented mobile setups.",
+      href: "#contact",
     },
   ]
 
@@ -50,7 +51,7 @@ export function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="mb-6">
           <h2 className="text-[13px] md:text-[15px] font-mono tracking-[0.24em] text-[#E63946] uppercase mb-2 drop-shadow-[0_0_8px_rgba(230,57,70,0.75)]">
-            Our Services
+            Services
           </h2>
           <div className="h-px w-16 bg-[#E63946] shadow-[0_0_12px_rgba(230,57,70,0.85)]" />
         </div>
