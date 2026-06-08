@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { ChevronRight } from "lucide-react"
 
 export function ServicesSection() {
@@ -17,12 +18,13 @@ export function ServicesSection() {
     },
     {
       icon: () => (
-        <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <circle cx="12" cy="12" r="10" />
-          <text x="12" y="16" fontSize="10" textAnchor="middle" fill="currentColor" fontWeight="bold">
-            M
-          </text>
-        </svg>
+        <Image
+          src="/images/XMR_icon_BLACK.png"
+          alt="Monero XMR"
+          width={28}
+          height={28}
+          className="h-7 w-7 object-contain drop-shadow-[0_0_8px_rgba(230,57,70,0.65)]"
+        />
       ),
       title: "XMR PAYMENTS",
       description: "I accept Monero (XMR) for private, direct, and censorship-resistant payments.",
