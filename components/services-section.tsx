@@ -65,7 +65,7 @@ export function ServicesSection() {
                 key={index}
                 className="group cyber-card corner-accent p-5 rounded-sm hover:border-[#E63946]/30 transition-all relative"
               >
-                <div className="w-10 h-10 flex items-center justify-center mb-4 border border-[#E63946]/20 rounded-sm text-[#E63946] bg-[#E63946]/5 overflow-hidden">
+                <div className="w-10 h-10 flex items-center justify-center mb-4 border border-[#E63946]/20 rounded-sm text-[#E63946] bg-[#E63946]/5"
                   <Icon />
                 </div>
 
