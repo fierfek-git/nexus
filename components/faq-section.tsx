@@ -40,7 +40,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-6 md:py-8 bg-[#0a0a0a]">
+    <section id="faq" className="target-section py-6 md:py-8 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="mb-6">
           <h2 className="text-[13px] md:text-[15px] font-mono tracking-[0.24em] text-[#E63946] uppercase mb-2 drop-shadow-[0_0_8px_rgba(230,57,70,0.75)]">
