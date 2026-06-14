@@ -107,19 +107,19 @@ export function Footer() {
           {/* Legal links */}
           <div className="flex items-center gap-4 md:gap-6">
             <Link
-              href="#privacy"
+              href="/privacy-policy"
               className="text-[10px] md:text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#terms"
+              href="/terms-of-service"
               className="text-[10px] md:text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
             >
               Terms of Service
             </Link>
             <Link
-              href="#status"
+              href="/status"
               className="text-[10px] md:text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors uppercase"
             >
               Status
