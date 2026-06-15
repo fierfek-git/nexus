@@ -1,7 +1,6 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
+import { Oxanium } from "next/font/google"
 import {
   ArrowRight,
   Banknote,
@@ -11,6 +10,11 @@ import {
   UserRound,
   Wallet,
 } from "lucide-react"
+
+const heroFont = Oxanium({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+})
 
 const trustItems = [
   {
@@ -61,51 +65,48 @@ const sideHighlights = [
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-[#1a1a1a] bg-[#050505]">
-      {/* Background grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:56px_56px]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:58px_58px]" />
 
-      {/* Red atmosphere */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_46%,rgba(230,57,70,0.24),transparent_38%),radial-gradient(circle_at_36%_52%,rgba(139,15,26,0.22),transparent_44%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_44%,rgba(230,57,70,0.25),transparent_36%),radial-gradient(circle_at_34%_54%,rgba(139,15,26,0.24),transparent_42%)]" />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.18),rgba(0,0,0,0.72))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.18),rgba(0,0,0,0.78))]" />
 
-      {/* Subtle top HUD line */}
-      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E63946]/30 to-transparent" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E63946]/40 to-transparent" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20 lg:px-12 lg:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_0.92fr_0.26fr]">
-          {/* Left content */}
-          <div className="max-w-2xl">
-            <div className="mb-7 flex flex-wrap items-center gap-4 text-[10px] uppercase tracking-[0.35em] text-[#A3A3A3]">
-              <span className="text-[#E63946]">Private by design</span>
-              <span className="text-[#555555]">·</span>
+      <div className="relative mx-auto max-w-[1680px] px-4 py-12 md:px-8 md:py-16 lg:px-10 lg:py-20 xl:px-14">
+        <div className="grid items-center gap-8 lg:grid-cols-[minmax(460px,0.98fr)_minmax(360px,0.82fr)_112px] xl:grid-cols-[minmax(620px,0.96fr)_minmax(520px,0.86fr)_132px] xl:gap-10">
+          <div className="relative z-10">
+            <div className="mb-6 flex flex-wrap items-center gap-4 text-[10px] uppercase tracking-[0.36em] text-[#A3A3A3]">
+              <span className="text-[#ff2a3d]">Private by design</span>
+              <span className="text-[#565656]">·</span>
               <span>Paid with XMR</span>
-              <span className="hidden h-px w-20 bg-[#E63946]/70 sm:block" />
+              <span className="hidden h-px w-24 bg-[#E63946]/80 sm:block" />
             </div>
 
-            <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.055em] text-[#F2F2F2] sm:text-6xl md:text-7xl">
-              Private executive
-              <br />
-              operations.
-              <br />
-              Paid with{" "}
-              <span className="text-[#ff2638] drop-shadow-[0_0_20px_rgba(230,57,70,0.42)]">
-                Monero.
+            <h1
+              className={`${heroFont.className} max-w-[820px] text-[clamp(2.75rem,4.2vw,5.9rem)] font-extrabold leading-[0.92] tracking-[-0.07em] text-[#F2F2F2] drop-shadow-[0_0_18px_rgba(255,255,255,0.12)]`}
+            >
+              <span className="block whitespace-nowrap">Private executive</span>
+              <span className="block">operations.</span>
+              <span className="block">
+                Paid with{" "}
+                <span className="text-[#ff2638] drop-shadow-[0_0_22px_rgba(230,57,70,0.48)]">
+                  Monero.
+                </span>
               </span>
             </h1>
 
-            <div className="mt-7 h-px w-20 bg-[#E63946]" />
+            <div className="mt-7 h-px w-20 bg-[#E63946] shadow-[0_0_16px_rgba(230,57,70,0.85)]" />
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-[#A3A3A3] md:text-lg">
+            <p className="mt-7 max-w-[620px] text-[15px] leading-8 text-[#A3A3A3] md:text-[17px]">
               Discreet digital, financial, and field support for demanding
               clients who require privacy, coordination, and turnkey execution.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
                 href="#services"
-                className="group inline-flex items-center gap-3 border border-[#E63946] bg-[#E63946] px-7 py-4 text-xs font-bold uppercase tracking-[0.28em] text-white shadow-[0_0_30px_rgba(230,57,70,0.22)] transition hover:bg-[#ff3345] hover:shadow-[0_0_42px_rgba(230,57,70,0.35)]"
+                className="group inline-flex items-center gap-3 border border-[#E63946] bg-gradient-to-b from-[#ff3a49] to-[#c91625] px-7 py-4 text-xs font-bold uppercase tracking-[0.28em] text-white shadow-[0_0_34px_rgba(230,57,70,0.28)] transition hover:shadow-[0_0_48px_rgba(230,57,70,0.42)]"
               >
                 View Services
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -113,15 +114,14 @@ export function HeroSection() {
 
               <Link
                 href="#process"
-                className="inline-flex items-center gap-3 border border-[#333333] bg-[#090909]/80 px-7 py-4 text-xs font-bold uppercase tracking-[0.28em] text-[#F2F2F2] transition hover:border-[#E63946] hover:text-white"
+                className="inline-flex items-center gap-3 border border-[#343434] bg-[#080808]/85 px-7 py-4 text-xs font-bold uppercase tracking-[0.28em] text-[#F2F2F2] transition hover:border-[#E63946] hover:text-white"
               >
                 How It Works
                 <span className="text-[#E63946]">&lt;&gt;</span>
               </Link>
             </div>
 
-            {/* Trust strip */}
-            <div className="mt-12 hidden max-w-3xl border border-[#2a2a2a] bg-[#0b0b0b]/82 backdrop-blur-sm md:block">
+            <div className="mt-11 hidden max-w-[780px] border border-[#2a2a2a] bg-[#080808]/86 shadow-[0_0_36px_rgba(0,0,0,0.65)] backdrop-blur-sm md:block">
               <div className="grid grid-cols-5 divide-x divide-[#262626]">
                 {trustItems.map((item) => {
                   const Icon = item.icon
@@ -131,7 +131,7 @@ export function HeroSection() {
                       key={`${item.title}-${item.subtitle}`}
                       className="flex items-center justify-center gap-3 px-3 py-4"
                     >
-                      <span className="flex h-9 w-9 items-center justify-center border border-[#8B0F1A] bg-[#101010] text-[#E63946]">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#8B0F1A] bg-[#101010] text-[#E63946] shadow-[0_0_18px_rgba(230,57,70,0.12)]">
                         <Icon className="h-4 w-4" />
                       </span>
 
@@ -147,18 +147,20 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Main image */}
-          <div className="relative mx-auto w-full max-w-[560px]">
-            <div className="absolute -inset-8 bg-[#E63946]/20 blur-3xl" />
-            <div className="absolute -inset-3 border border-[#E63946]/20" />
+          <div className="relative mx-auto w-full max-w-[620px] xl:max-w-[680px]">
+            <div className="absolute -inset-10 bg-[#E63946]/20 blur-3xl" />
+            <div className="absolute -inset-4 border border-[#E63946]/20" />
 
-            <div className="relative border border-[#8B0F1A]/80 bg-[#060606] p-3 shadow-[0_0_80px_rgba(230,57,70,0.22)]">
+            <div className="relative border border-[#8B0F1A]/90 bg-[#060606] p-3 shadow-[0_0_90px_rgba(230,57,70,0.24)]">
               <div className="pointer-events-none absolute inset-0 border border-[#E63946]/25" />
 
-              <div className="pointer-events-none absolute left-0 top-0 h-12 w-12 border-l border-t border-[#E63946]" />
-              <div className="pointer-events-none absolute right-0 top-0 h-12 w-12 border-r border-t border-[#E63946]" />
-              <div className="pointer-events-none absolute bottom-0 left-0 h-12 w-12 border-b border-l border-[#E63946]" />
-              <div className="pointer-events-none absolute bottom-0 right-0 h-12 w-12 border-b border-r border-[#E63946]" />
+              <div className="pointer-events-none absolute left-0 top-0 h-16 w-16 border-l border-t border-[#E63946]" />
+              <div className="pointer-events-none absolute right-0 top-0 h-16 w-16 border-r border-t border-[#E63946]" />
+              <div className="pointer-events-none absolute bottom-0 left-0 h-16 w-16 border-b border-l border-[#E63946]" />
+              <div className="pointer-events-none absolute bottom-0 right-0 h-16 w-16 border-b border-r border-[#E63946]" />
+
+              <div className="pointer-events-none absolute left-1/2 top-0 h-px w-32 -translate-x-1/2 bg-[#E63946]" />
+              <div className="pointer-events-none absolute bottom-0 left-1/2 h-px w-32 -translate-x-1/2 bg-[#E63946]" />
 
               <Image
                 src="/images/hero-character.png"
@@ -171,7 +173,6 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right vertical highlights */}
           <div className="hidden h-full min-h-[500px] w-full flex-col items-center justify-center gap-8 text-center lg:flex">
             {sideHighlights.map((item, index) => {
               const Icon = item.icon
@@ -181,21 +182,22 @@ export function HeroSection() {
                   key={`${item.title}-${item.subtitle}`}
                   className="flex flex-col items-center"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-[#8B0F1A] bg-[#0b0b0b] text-[#E63946] shadow-[0_0_22px_rgba(230,57,70,0.18)]">
-                    <Icon className="h-5 w-5" />
+                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#8B0F1A] bg-[#0b0b0b] text-[#E63946] shadow-[0_0_24px_rgba(230,57,70,0.22)]">
+                    <Icon className="h-6 w-6" />
                   </div>
 
                   <div className="space-y-2">
                     <p className="text-[10px] uppercase tracking-[0.38em] text-[#8a8a8a]">
                       {item.title}
                     </p>
+
                     <p className="text-sm uppercase tracking-[0.28em] text-[#E63946]">
                       {item.subtitle}
                     </p>
                   </div>
 
                   {index < sideHighlights.length - 1 && (
-                    <div className="mt-8 h-12 w-px bg-gradient-to-b from-[#E63946]/60 to-transparent" />
+                    <div className="mt-8 h-14 w-px bg-gradient-to-b from-[#E63946]/70 to-transparent" />
                   )}
                 </div>
               )
@@ -203,7 +205,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Mobile trust strip */}
         <div className="mt-10 grid grid-cols-2 gap-3 border border-[#2a2a2a] bg-[#0b0b0b]/82 p-3 md:hidden">
           {trustItems.map((item) => {
             const Icon = item.icon
@@ -227,7 +228,7 @@ export function HeroSection() {
           })}
         </div>
 
-        <div className="mt-10 hidden items-center justify-center gap-6 text-[10px] font-mono uppercase tracking-[0.28em] text-[#555555] lg:flex">
+        <div className="mt-9 hidden items-center justify-center gap-6 text-[10px] font-mono uppercase tracking-[0.28em] text-[#555555] xl:flex">
           <span className="h-px w-28 bg-gradient-to-r from-transparent to-[#E63946]/60" />
           <span>Privacy is our protocol</span>
           <span className="text-[#E63946]">·</span>
