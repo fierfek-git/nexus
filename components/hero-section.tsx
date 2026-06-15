@@ -13,34 +13,29 @@ import {
 
 const heroFont = Oxanium({
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["600", "700"],
 })
 
 const trustItems = [
   {
     icon: ShieldCheck,
-    title: "MISSION",
-    subtitle: "REVIEW",
+    label: "MISSION REVIEW",
   },
   {
     icon: Wallet,
-    title: "XMR",
-    subtitle: "ONLY",
+    label: "XMR ONLY",
   },
   {
     icon: ShieldCheck,
-    title: "PRIVATE",
-    subtitle: "HANDLING",
+    label: "PRIVATE HANDLING",
   },
   {
     icon: Banknote,
-    title: "BANKING",
-    subtitle: "COORDINATION",
+    label: "BANKING COORDINATION",
   },
   {
     icon: Headphones,
-    title: "EXECUTIVE",
-    subtitle: "SUPPORT",
+    label: "EXECUTIVE SUPPORT",
   },
 ]
 
@@ -62,9 +57,36 @@ const sideHighlights = [
   },
 ]
 
+const marqueeItems = [...trustItems, ...trustItems]
+
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-[#1a1a1a] bg-[#050505]">
+      <style>{`
+        @keyframes hero-marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+
+        .hero-marquee-track {
+          animation: hero-marquee 26s linear infinite;
+        }
+
+        .hero-marquee-panel:hover .hero-marquee-track {
+          animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-marquee-track {
+            animation: none;
+          }
+        }
+      `}</style>
+
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:58px_58px]" />
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_65%_44%,rgba(230,57,70,0.25),transparent_36%),radial-gradient(circle_at_34%_54%,rgba(139,15,26,0.24),transparent_42%)]" />
@@ -84,7 +106,7 @@ export function HeroSection() {
             </div>
 
             <h1
-              className={`${heroFont.className} max-w-[820px] text-[clamp(2.75rem,4.2vw,5.9rem)] font-extrabold leading-[0.92] tracking-[-0.07em] text-[#F2F2F2] drop-shadow-[0_0_18px_rgba(255,255,255,0.12)]`}
+              className={`${heroFont.className} max-w-[850px] text-[clamp(2.7rem,4.05vw,5.55rem)] font-bold leading-[0.96] tracking-[-0.055em] text-[#F2F2F2] drop-shadow-[0_0_18px_rgba(255,255,255,0.12)]`}
             >
               <span className="block whitespace-nowrap">Private executive</span>
               <span className="block">operations.</span>
@@ -106,43 +128,53 @@ export function HeroSection() {
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
                 href="#services"
-                className="group inline-flex items-center gap-3 border border-[#E63946] bg-gradient-to-b from-[#ff3a49] to-[#c91625] px-7 py-4 text-xs font-bold uppercase tracking-[0.28em] text-white shadow-[0_0_34px_rgba(230,57,70,0.28)] transition hover:shadow-[0_0_48px_rgba(230,57,70,0.42)]"
+                className="group relative inline-flex overflow-hidden border border-[#E63946] bg-gradient-to-b from-[#ff3a49] via-[#e62635] to-[#b80f1d] px-8 py-4 text-xs font-semibold uppercase tracking-[0.30em] text-white shadow-[0_0_34px_rgba(230,57,70,0.34)] transition hover:shadow-[0_0_55px_rgba(230,57,70,0.48)]"
               >
-                View Services
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/45" />
+                <span className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-white/10 blur-xl transition-transform duration-700 group-hover:translate-x-40" />
+
+                <span className="relative flex items-center gap-3">
+                  View Services
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
               </Link>
 
               <Link
                 href="#process"
-                className="inline-flex items-center gap-3 border border-[#343434] bg-[#080808]/85 px-7 py-4 text-xs font-bold uppercase tracking-[0.28em] text-[#F2F2F2] transition hover:border-[#E63946] hover:text-white"
+                className="inline-flex items-center gap-3 border border-[#343434] bg-[#080808]/85 px-7 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#F2F2F2] transition hover:border-[#E63946] hover:text-white"
               >
                 How It Works
                 <span className="text-[#E63946]">&lt;&gt;</span>
               </Link>
             </div>
 
-            <div className="mt-11 hidden max-w-[780px] border border-[#2a2a2a] bg-[#080808]/86 shadow-[0_0_36px_rgba(0,0,0,0.65)] backdrop-blur-sm md:block">
-              <div className="grid grid-cols-5 divide-x divide-[#262626]">
-                {trustItems.map((item) => {
-                  const Icon = item.icon
+            <div className="hero-marquee-panel mt-11 hidden max-w-[780px] overflow-hidden border border-[#2a2a2a] bg-[#080808]/86 shadow-[0_0_36px_rgba(0,0,0,0.65)] backdrop-blur-sm md:block">
+              <div className="relative flex">
+                <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-16 bg-gradient-to-r from-[#080808] to-transparent" />
+                <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-16 bg-gradient-to-l from-[#080808] to-transparent" />
 
-                  return (
-                    <div
-                      key={`${item.title}-${item.subtitle}`}
-                      className="flex items-center justify-center gap-3 px-3 py-4"
-                    >
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#8B0F1A] bg-[#101010] text-[#E63946] shadow-[0_0_18px_rgba(230,57,70,0.12)]">
-                        <Icon className="h-4 w-4" />
-                      </span>
+                <div className="hero-marquee-track flex w-max items-center py-4">
+                  {marqueeItems.map((item, index) => {
+                    const Icon = item.icon
 
-                      <span className="text-[9px] font-mono uppercase leading-4 tracking-[0.16em] text-[#BDBDBD]">
-                        {item.title}
-                        <br />
-                        {item.subtitle}
-                      </span>
-                    </div>
-                  )
-                })}
+                    return (
+                      <div
+                        key={`${item.label}-${index}`}
+                        className="flex shrink-0 items-center gap-4 px-7"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#8B0F1A] bg-[#101010] text-[#E63946] shadow-[0_0_18px_rgba(230,57,70,0.12)]">
+                          <Icon className="h-4 w-4" />
+                        </span>
+
+                        <span className="whitespace-nowrap text-[10px] font-mono uppercase tracking-[0.18em] text-[#BDBDBD]">
+                          {item.label}
+                        </span>
+
+                        <span className="text-[#E63946]/70">•</span>
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -205,13 +237,13 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 gap-3 border border-[#2a2a2a] bg-[#0b0b0b]/82 p-3 md:hidden">
+        <div className="mt-10 grid grid-cols-1 gap-3 border border-[#2a2a2a] bg-[#0b0b0b]/82 p-3 md:hidden">
           {trustItems.map((item) => {
             const Icon = item.icon
 
             return (
               <div
-                key={`${item.title}-${item.subtitle}`}
+                key={item.label}
                 className="flex items-center gap-3 border border-[#1a1a1a] bg-[#090909] p-3"
               >
                 <span className="flex h-8 w-8 items-center justify-center border border-[#8B0F1A] text-[#E63946]">
@@ -219,9 +251,7 @@ export function HeroSection() {
                 </span>
 
                 <span className="text-[9px] font-mono uppercase leading-4 tracking-[0.14em] text-[#BDBDBD]">
-                  {item.title}
-                  <br />
-                  {item.subtitle}
+                  {item.label}
                 </span>
               </div>
             )
