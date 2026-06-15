@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Oxanium } from "next/font/google"
+import { Orbitron } from "next/font/google"
 import {
   ArrowRight,
   Banknote,
@@ -11,9 +11,9 @@ import {
   Wallet,
 } from "lucide-react"
 
-const heroFont = Oxanium({
+const heroFont = Orbitron({
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["700", "800", "900"],
 })
 
 const trustItems = [
@@ -73,7 +73,7 @@ export function HeroSection() {
         }
 
         .hero-marquee-track {
-          animation: hero-marquee 26s linear infinite;
+          animation: hero-marquee 28s linear infinite;
         }
 
         .hero-marquee-panel:hover .hero-marquee-track {
@@ -106,7 +106,7 @@ export function HeroSection() {
             </div>
 
             <h1
-              className={`${heroFont.className} max-w-[850px] text-[clamp(2.7rem,4.05vw,5.55rem)] font-bold leading-[0.96] tracking-[-0.055em] text-[#F2F2F2] drop-shadow-[0_0_18px_rgba(255,255,255,0.12)]`}
+              className={`${heroFont.className} max-w-[920px] text-[clamp(2.55rem,3.85vw,5.35rem)] font-black leading-[0.98] tracking-[-0.045em] text-[#F2F2F2] drop-shadow-[0_0_18px_rgba(255,255,255,0.14)]`}
             >
               <span className="block whitespace-nowrap">Private executive</span>
               <span className="block">operations.</span>
@@ -148,25 +148,25 @@ export function HeroSection() {
               </Link>
             </div>
 
-            <div className="hero-marquee-panel mt-11 hidden max-w-[780px] overflow-hidden border border-[#2a2a2a] bg-[#080808]/86 shadow-[0_0_36px_rgba(0,0,0,0.65)] backdrop-blur-sm md:block">
+            <div className="hero-marquee-panel mt-10 hidden max-w-[860px] overflow-hidden border border-[#2a2a2a]/80 bg-[#080808]/72 shadow-[0_0_28px_rgba(0,0,0,0.55)] backdrop-blur-sm transition-all duration-300 hover:border-[#E63946]/70 hover:shadow-[0_0_32px_rgba(230,57,70,0.28)] md:block">
               <div className="relative flex">
                 <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-16 bg-gradient-to-r from-[#080808] to-transparent" />
                 <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-16 bg-gradient-to-l from-[#080808] to-transparent" />
 
-                <div className="hero-marquee-track flex w-max items-center py-4">
+                <div className="hero-marquee-track flex w-max items-center py-2.5">
                   {marqueeItems.map((item, index) => {
                     const Icon = item.icon
 
                     return (
                       <div
                         key={`${item.label}-${index}`}
-                        className="flex shrink-0 items-center gap-4 px-7"
+                        className="flex shrink-0 items-center gap-3 px-6"
                       >
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#8B0F1A] bg-[#101010] text-[#E63946] shadow-[0_0_18px_rgba(230,57,70,0.12)]">
-                          <Icon className="h-4 w-4" />
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#8B0F1A] bg-[#101010] text-[#E63946] shadow-[0_0_14px_rgba(230,57,70,0.14)]">
+                          <Icon className="h-3.5 w-3.5" />
                         </span>
 
-                        <span className="whitespace-nowrap text-[10px] font-mono uppercase tracking-[0.18em] text-[#BDBDBD]">
+                        <span className="whitespace-nowrap text-[9px] font-mono uppercase tracking-[0.2em] text-[#BDBDBD]">
                           {item.label}
                         </span>
 
