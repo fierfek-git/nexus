@@ -4,10 +4,8 @@ import { Orbitron } from "next/font/google"
 import {
   ArrowRight,
   Banknote,
-  BriefcaseBusiness,
   Headphones,
   ShieldCheck,
-  UserRound,
   Wallet,
 } from "lucide-react"
 
@@ -41,17 +39,20 @@ const trustItems = [
 
 const sideHighlights = [
   {
-    icon: UserRound,
+    image: "/images/discret_man.png",
+    alt: "Executive concierge icon",
     title: "EXECUTIVE",
     subtitle: "CONCIERGE",
   },
   {
-    icon: Wallet,
+    image: "/images/monero-red-icon.png",
+    alt: "Monero payment icon",
     title: "PAYMENT",
     subtitle: "XMR ONLY",
   },
   {
-    icon: BriefcaseBusiness,
+    image: "/images/discret_services.png",
+    alt: "Anonymous operation icon",
     title: "OPERATION",
     subtitle: "ANONYMOUS",
   },
@@ -106,8 +107,8 @@ export function HeroSection() {
             </div>
 
             <h1
-  className={`${heroFont.className} max-w-[720px] text-[clamp(2.3rem,3.35vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.035em] text-[#F4F4F4] drop-shadow-[0_0_18px_rgba(255,255,255,0.13)]`}
->
+              className={`${heroFont.className} max-w-[720px] text-[clamp(2.3rem,3.35vw,4.8rem)] font-black leading-[1.02] tracking-[-0.035em] text-[#F4F4F4] drop-shadow-[0_0_18px_rgba(255,255,255,0.13)]`}
+            >
               <span className="block">Private executive</span>
               <span className="block">operations.</span>
               <span className="block">
@@ -207,18 +208,22 @@ export function HeroSection() {
 
           <div className="hidden h-full min-h-[500px] w-full flex-col items-center justify-center gap-8 text-center lg:flex">
             {sideHighlights.map((item, index) => {
-              const Icon = item.icon
-
               return (
                 <div
                   key={`${item.title}-${item.subtitle}`}
                   className="flex flex-col items-center"
                 >
-                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-[#8B0F1A] bg-[#0b0b0b] text-[#E63946] shadow-[0_0_24px_rgba(230,57,70,0.22)]">
-                    <Icon className="h-6 w-6" />
+                  <div className="mb-5 flex h-[82px] w-[82px] items-center justify-center overflow-hidden rounded-full border border-[#8B0F1A] bg-[#0b0b0b] shadow-[0_0_28px_rgba(230,57,70,0.24)]">
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      width={72}
+                      height={72}
+                      className="h-[68px] w-[68px] object-contain"
+                    />
                   </div>
 
-                  <div className="space-y-2">
+                  <div className="space-y-2 text-center">
                     <p className="text-[10px] uppercase tracking-[0.38em] text-[#8a8a8a]">
                       {item.title}
                     </p>
