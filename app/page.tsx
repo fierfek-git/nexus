@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { TrustBadges } from "@/components/trust-badges"
 import { ServicesSection } from "@/components/services-section"
 import { XmrPaymentSection } from "@/components/xmr-payment-section"
 import { TrustedByDesign } from "@/components/trusted-by-design"
@@ -14,8 +13,8 @@ export default function Page() {
     <main className="min-h-screen bg-[#0a0a0a] relative scanline">
       <Header />
       <HeroSection />
-      <TrustBadges />
       <ServicesSection />
+
       <section className="py-6 md:py-8 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -25,6 +24,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+
       <FaqSection />
       <ContactSection />
       <Footer />
