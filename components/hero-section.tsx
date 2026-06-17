@@ -106,9 +106,9 @@ export function HeroSection() {
             </div>
 
             <h1
-              className={`${heroFont.className} max-w-[920px] text-[clamp(2.55rem,3.85vw,5.35rem)] font-black leading-[0.98] tracking-[-0.045em] text-[#F2F2F2] drop-shadow-[0_0_18px_rgba(255,255,255,0.14)]`}
-            >
-              <span className="block whitespace-nowrap">Private executive</span>
+  className={`${heroFont.className} max-w-[720px] text-[clamp(2.3rem,3.35vw,4.8rem)] font-normal leading-[1.02] tracking-[-0.035em] text-[#F4F4F4] drop-shadow-[0_0_18px_rgba(255,255,255,0.13)]`}
+>
+              <span className="block">Private executive</span>
               <span className="block">operations.</span>
               <span className="block">
                 Paid with{" "}
