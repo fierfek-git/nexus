@@ -42,21 +42,21 @@ export function Header() {
               </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden items-center gap-5 lg:flex">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] transition-colors hover:text-[#F2F2F2]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
+            {/* Right cluster: Navigation + Pay button */}
+            <div className="ml-auto flex shrink-0 items-center gap-8 xl:mr-28 2xl:mr-40">
+              {/* Desktop Navigation */}
+              <nav className="hidden items-center gap-5 lg:flex">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] transition-colors hover:text-[#F2F2F2]"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
 
-            {/* Right side actions */}
-            <div className="flex shrink-0 items-center gap-3">
               {/* XMR Button - Desktop */}
               <button
                 type="button"
