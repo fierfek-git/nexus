@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronRight, SlidersHorizontal } from "lucide-react"
-import { XmrPaymentModal } from "./components/xmr-payment-modal"
+import { XmrPaymentModal } from "./xmr-payment-modal"
 
 export function PricingIndicator() {
   const [xmrModalOpen, setXmrModalOpen] = useState(false)
