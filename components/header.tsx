@@ -43,7 +43,7 @@ export function Header() {
             </div>
 
             {/* Right cluster: Navigation + Pay button */}
-            <div className="ml-auto flex shrink-0 items-center gap-8 xl:mr-28 2xl:mr-40">
+            <div className="ml-auto flex shrink-0 items-center gap-5 xl:mr-28 2xl:mr-40">
               {/* Desktop Navigation */}
               <nav className="hidden items-center gap-5 lg:flex">
                 {navItems.map((item) => (
