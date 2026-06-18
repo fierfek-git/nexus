@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
-import { XmrPaymentModal } from "./components/xmr-payment-modal"
+import { XmrPaymentModal } from "./xmr-payment-modal"
 import { MoneroTicker } from "@/components/monero-ticker"
 
 export function Header() {
