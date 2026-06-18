@@ -21,30 +21,34 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#1a1a1a]">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-          <div className="flex items-center justify-between h-14 md:h-16">
-            {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/logo-horizontal.png"
-                alt="fierfek.nexus"
-                width={220}
-                height={55}
-                className="h-10 md:h-12 w-auto"
-                priority
-              />
-            </Link>
+      <header className="sticky top-0 z-50 border-b border-[#1a1a1a] bg-[#0a0a0a]/95 backdrop-blur-md">
+        <div className="mx-auto max-w-[1680px] px-4 md:px-8 lg:px-10 xl:px-14">
+          <div className="flex h-14 items-center justify-between gap-6 md:h-16">
+            {/* Left cluster: Logo + Monero ticker */}
+            <div className="flex min-w-0 items-center gap-5 md:gap-7">
+              <Link href="/" className="flex shrink-0 items-center">
+                <Image
+                  src="/images/logo-horizontal.png"
+                  alt="fierfek.nexus"
+                  width={220}
+                  height={55}
+                  className="h-10 w-auto md:h-12"
+                  priority
+                />
+              </Link>
 
-            <MoneroTicker />
+              <div className="hidden shrink-0 md:block">
+                <MoneroTicker />
+              </div>
+            </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-5">
+            <nav className="hidden items-center gap-5 lg:flex">
               {navItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors"
+                  className="text-[10px] font-mono tracking-[0.15em] text-[#A3A3A3] transition-colors hover:text-[#F2F2F2]"
                 >
                   {item.label}
                 </Link>
@@ -52,12 +56,12 @@ export function Header() {
             </nav>
 
             {/* Right side actions */}
-            <div className="flex items-center gap-3">
+            <div className="flex shrink-0 items-center gap-3">
               {/* XMR Button - Desktop */}
               <button
                 type="button"
                 onClick={() => setXmrModalOpen(true)}
-                className="hidden md:flex items-center gap-3 px-5 py-2.5 border border-[#E63946] text-[#E63946] rounded-sm bg-[#0a0a0a] hover:bg-[#E63946]/10 transition-all duration-300"
+                className="hidden items-center gap-3 rounded-sm border border-[#E63946] bg-[#0a0a0a] px-5 py-2.5 text-[#E63946] transition-all duration-300 hover:bg-[#E63946]/10 md:flex"
                 style={{
                   boxShadow:
                     "0 0 8px rgba(230,57,70,0.35), 0 0 18px rgba(230,57,70,0.22), inset 0 0 10px rgba(230,57,70,0.08)",
@@ -83,7 +87,7 @@ export function Header() {
               {/* Mobile menu button */}
               <button
                 type="button"
-                className="lg:hidden p-2 text-[#A3A3A3] hover:text-[#F2F2F2]"
+                className="p-2 text-[#A3A3A3] hover:text-[#F2F2F2] lg:hidden"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle mobile menu"
               >
@@ -94,24 +98,28 @@ export function Header() {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <nav className="lg:hidden py-4 border-t border-[#1a1a1a]">
+            <nav className="border-t border-[#1a1a1a] py-4 lg:hidden">
               <div className="flex flex-col gap-3">
+                <div className="md:hidden">
+                  <MoneroTicker />
+                </div>
+
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] hover:text-[#F2F2F2] transition-colors py-1"
+                    className="py-1 text-[11px] font-mono tracking-[0.15em] text-[#A3A3A3] transition-colors hover:text-[#F2F2F2]"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
 
-                <div className="flex items-center gap-3 pt-3 border-t border-[#1a1a1a]">
+                <div className="flex items-center gap-3 border-t border-[#1a1a1a] pt-3">
                   {/* XMR Button - Mobile */}
                   <button
                     type="button"
-                    className="flex items-center gap-3 px-5 py-2.5 border border-[#E63946] text-[#E63946] rounded-sm bg-[#0a0a0a] hover:bg-[#E63946]/10 transition-all duration-300"
+                    className="flex items-center gap-3 rounded-sm border border-[#E63946] bg-[#0a0a0a] px-5 py-2.5 text-[#E63946] transition-all duration-300 hover:bg-[#E63946]/10"
                     style={{
                       boxShadow:
                         "0 0 8px rgba(230,57,70,0.35), 0 0 18px rgba(230,57,70,0.22), inset 0 0 10px rgba(230,57,70,0.08)",
