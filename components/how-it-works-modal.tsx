@@ -1,10 +1,10 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect } from "react"
 import {
   AlertTriangle,
   ArrowRight,
-  Banknote,
   CheckCircle2,
   ClipboardCheck,
   Crosshair,
@@ -22,7 +22,6 @@ type HowItWorksModalProps = {
 const processSteps = [
   {
     number: "01",
-    short: "REVIEW",
     title: "MISSION REVIEW",
     description:
       "Scope, urgency, legality, and feasibility are reviewed before acceptance.",
@@ -30,7 +29,6 @@ const processSteps = [
   },
   {
     number: "02",
-    short: "CONTACT",
     title: "SECURE CONTACT",
     description:
       "Private coordination continues through the most appropriate channel.",
@@ -38,7 +36,6 @@ const processSteps = [
   },
   {
     number: "03",
-    short: "PAYMENT",
     title: "SCOPE & PAYMENT",
     description:
       "Terms, delivery conditions, and XMR settlement are confirmed.",
@@ -46,7 +43,6 @@ const processSteps = [
   },
   {
     number: "04",
-    short: "EXECUTION",
     title: "PRIVATE EXECUTION",
     description:
       "Work is handled discreetly and delivered according to the agreed scope.",
@@ -100,7 +96,7 @@ export function HowItWorksModal({ open, onClose }: HowItWorksModalProps) {
       aria-label="Mission process"
     >
       <div
-        className="relative w-full max-w-5xl max-h-[92vh] overflow-y-auto border border-[#E63946] bg-[#080808] shadow-[0_0_80px_rgba(230,57,70,0.24)]"
+        className="relative max-h-[92vh] w-full max-w-[940px] overflow-y-auto border border-[#E63946] bg-[#080808] shadow-[0_0_80px_rgba(230,57,70,0.24)]"
         onClick={(event) => event.stopPropagation()}
       >
         <style>{`
@@ -113,26 +109,8 @@ export function HowItWorksModal({ open, onClose }: HowItWorksModalProps) {
             }
           }
 
-          @keyframes mission-scan {
-            0% {
-              transform: translateY(-100%);
-              opacity: 0;
-            }
-            20% {
-              opacity: 0.75;
-            }
-            100% {
-              transform: translateY(460%);
-              opacity: 0;
-            }
-          }
-
           .mission-pulse {
             animation: mission-pulse 2.8s ease-in-out infinite;
-          }
-
-          .mission-scan {
-            animation: mission-scan 4.5s linear infinite;
           }
         `}</style>
 
@@ -223,62 +201,24 @@ export function HowItWorksModal({ open, onClose }: HowItWorksModalProps) {
             })}
           </div>
 
-          {/* Right visual process panel */}
+          {/* Right visual image panel */}
           <div className="space-y-4">
-            <div className="relative overflow-hidden border border-[#8B0F1A]/90 bg-[#090909] p-5 shadow-[inset_0_0_50px_rgba(230,57,70,0.07),0_0_34px_rgba(230,57,70,0.10)]">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:34px_34px]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_46%_45%,rgba(230,57,70,0.22),transparent_46%)]" />
-              <div className="mission-scan pointer-events-none absolute left-0 right-0 top-0 h-16 bg-gradient-to-b from-transparent via-[#E63946]/10 to-transparent" />
+            <div className="relative overflow-hidden border border-[#8B0F1A]/90 bg-[#050505] p-3 shadow-[inset_0_0_50px_rgba(230,57,70,0.07),0_0_34px_rgba(230,57,70,0.10)]">
+              <div className="pointer-events-none absolute left-3 top-3 z-10 h-9 w-9 border-l border-t border-[#E63946]" />
+              <div className="pointer-events-none absolute right-3 top-3 z-10 h-9 w-9 border-r border-t border-[#E63946]" />
+              <div className="pointer-events-none absolute bottom-3 left-3 z-10 h-9 w-9 border-b border-l border-[#E63946]" />
+              <div className="pointer-events-none absolute bottom-3 right-3 z-10 h-9 w-9 border-b border-r border-[#E63946]" />
 
-              <div className="pointer-events-none absolute left-5 top-5 h-10 w-10 border-l border-t border-[#E63946]" />
-              <div className="pointer-events-none absolute right-5 top-5 h-10 w-10 border-r border-t border-[#E63946]" />
-              <div className="pointer-events-none absolute bottom-5 left-5 h-10 w-10 border-b border-l border-[#E63946]" />
-              <div className="pointer-events-none absolute bottom-5 right-5 h-10 w-10 border-b border-r border-[#E63946]" />
+              <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_50%,transparent_55%,rgba(0,0,0,0.45))]" />
 
-              <div className="relative py-4">
-                <div className="absolute left-[38%] top-9 bottom-9 hidden w-px bg-gradient-to-b from-transparent via-[#E63946]/70 to-transparent sm:block" />
-
-                <div className="mx-auto flex max-w-md flex-col gap-4">
-                  {processSteps.map((step, index) => {
-                    const Icon = step.icon
-
-                    return (
-                      <div
-                        key={`visual-${step.number}`}
-                        className="grid grid-cols-[1fr_116px] items-center gap-4"
-                      >
-                        <div className="relative">
-                          <div className="relative flex h-[64px] items-center justify-center border border-[#8B0F1A]/80 bg-[#111111]/92 shadow-[0_0_24px_rgba(230,57,70,0.15)]">
-                            <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-[#E63946]/80" />
-                            <div className="pointer-events-none absolute inset-x-10 bottom-0 h-px bg-[#E63946]/30" />
-
-                            <span className="mission-pulse absolute -left-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#E63946]" />
-                            <span className="mission-pulse absolute -right-2 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-[#E63946]" />
-
-                            <span className="relative flex h-12 w-12 items-center justify-center rounded-full border border-[#8B0F1A] bg-[#0a0a0a] text-[#E63946] shadow-[0_0_22px_rgba(230,57,70,0.20)]">
-                              <Icon className="h-5 w-5" />
-                            </span>
-                          </div>
-
-                          {index < processSteps.length - 1 && (
-                            <div className="absolute left-1/2 top-[64px] h-4 w-px -translate-x-1/2 bg-[#E63946]/50" />
-                          )}
-                        </div>
-
-                        <div>
-                          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#E63946]">
-                            {step.number}
-                          </p>
-
-                          <p className="mt-1 font-mono text-[12px] uppercase tracking-[0.22em] text-[#F2F2F2]">
-                            {step.short}
-                          </p>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
+              <Image
+                src="/images/mission-process-flow.png"
+                alt="Mission process workflow: review, contact, payment, execution"
+                width={1402}
+                height={1122}
+                className="relative h-auto w-full object-contain"
+                priority={false}
+              />
             </div>
 
             <div className="relative overflow-hidden border border-[#2a2a2a] bg-[#0d0d0d]/92 p-5 transition hover:border-[#E63946]/50 hover:shadow-[0_0_26px_rgba(230,57,70,0.12)]">
