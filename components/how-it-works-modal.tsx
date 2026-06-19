@@ -255,19 +255,21 @@ export function HowItWorksModal({ open, onClose }: HowItWorksModalProps) {
 
         {/* Actions */}
         <div className="relative flex flex-col items-center justify-center gap-4 px-5 py-5 md:flex-row md:px-6">
-          <button
-            type="button"
-            onClick={goToContact}
-            className="group relative inline-flex overflow-hidden border border-[#E63946] bg-gradient-to-b from-[#ff3a49] via-[#e62635] to-[#b80f1d] px-8 py-4 text-xs font-semibold uppercase tracking-[0.30em] text-white shadow-[0_0_34px_rgba(230,57,70,0.34)] transition hover:shadow-[0_0_55px_rgba(230,57,70,0.48)]"
-          >
-            <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/45" />
-            <span className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-white/10 blur-xl transition-transform duration-700 group-hover:translate-x-40" />
+    <a
+  href="https://smp19.simplex.im/a#YHTqtQd6GRLoUi8SvKXbVqvmNgfKIKG4EqVpJHHncBo"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={onClose}
+  className="group relative inline-flex overflow-hidden border border-[#E63946] bg-gradient-to-b from-[#ff3a49] via-[#e62635] to-[#b80f1d] px-8 py-4 text-xs font-semibold uppercase tracking-[0.30em] text-white shadow-[0_0_34px_rgba(230,57,70,0.34)] transition hover:shadow-[0_0_55px_rgba(230,57,70,0.48)]"
+>
+  <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/45" />
+  <span className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-white/10 blur-xl transition-transform duration-700 group-hover:translate-x-40" />
 
-            <span className="relative flex items-center gap-3">
-              Start Process
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </span>
-          </button>
+  <span className="relative flex items-center gap-3">
+    Start Process
+    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+  </span>
+</a>
 
           <button
             type="button"
