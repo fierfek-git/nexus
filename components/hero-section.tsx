@@ -126,7 +126,7 @@ export function HeroSection() {
           }
 
           .how-it-works-pulse {
-            animation: how-it-works-glow 10s ease-in-out infinite;
+            animation: how-it-works-glow 3s ease-in-out infinite;
           }
 
           @media (prefers-reduced-motion: reduce) {
