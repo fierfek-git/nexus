@@ -80,6 +80,43 @@ export function HeroSection() {
             }
           }
 
+          @keyframes how-it-works-glow {
+            0%, 84%, 100% {
+              border-color: #343434;
+              box-shadow:
+                0 0 0 rgba(230,57,70,0),
+                inset 0 0 0 rgba(230,57,70,0);
+              background: rgba(8,8,8,0.85);
+            }
+
+            88% {
+              border-color: rgba(230,57,70,0.65);
+              box-shadow:
+                0 0 14px rgba(230,57,70,0.18),
+                0 0 28px rgba(230,57,70,0.12),
+                inset 0 0 12px rgba(230,57,70,0.06);
+              background: rgba(14,8,10,0.9);
+            }
+
+            92% {
+              border-color: rgba(230,57,70,0.95);
+              box-shadow:
+                0 0 22px rgba(230,57,70,0.34),
+                0 0 48px rgba(230,57,70,0.22),
+                inset 0 0 18px rgba(230,57,70,0.12);
+              background: rgba(22,8,12,0.95);
+            }
+
+            96% {
+              border-color: rgba(230,57,70,0.72);
+              box-shadow:
+                0 0 16px rgba(230,57,70,0.22),
+                0 0 34px rgba(230,57,70,0.14),
+                inset 0 0 14px rgba(230,57,70,0.08);
+              background: rgba(14,8,10,0.9);
+            }
+          }
+
           .hero-marquee-track {
             animation: hero-marquee 28s linear infinite;
           }
@@ -88,8 +125,13 @@ export function HeroSection() {
             animation-play-state: paused;
           }
 
+          .how-it-works-pulse {
+            animation: how-it-works-glow 10s ease-in-out infinite;
+          }
+
           @media (prefers-reduced-motion: reduce) {
-            .hero-marquee-track {
+            .hero-marquee-track,
+            .how-it-works-pulse {
               animation: none;
             }
           }
@@ -151,7 +193,7 @@ export function HeroSection() {
                 <button
                   type="button"
                   onClick={() => setHowItWorksOpen(true)}
-                  className="inline-flex items-center gap-3 border border-[#343434] bg-[#080808]/85 px-7 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#F2F2F2] transition hover:border-[#E63946] hover:text-white"
+                  className="how-it-works-pulse inline-flex items-center gap-3 border border-[#343434] bg-[#080808]/85 px-7 py-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#F2F2F2] transition hover:border-[#E63946] hover:text-white hover:shadow-[0_0_28px_rgba(230,57,70,0.24)]"
                 >
                   How It Works
                   <span className="text-[#E63946]">&lt;&gt;</span>
