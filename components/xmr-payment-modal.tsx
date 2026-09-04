@@ -6,7 +6,7 @@ import { QRCodeSVG } from "qrcode.react"
 import { useEffect, useMemo, useState } from "react"
 
 const XMR_ADDRESS =
-  "88wdLwfpxT3GRUzGZsmms4dYMPJ437EyYKFKfEkSuXArVXyrJfmDs3cXeYCHiw8P3jAa5Efv4kgAdV76HJDEvvoP1vUvSaB"
+  "8833B54XtpbNaXibwyjzgwRoUYp92oit1W5taKq5DYvUH2yWmQiCVtLcMAezwgT7D9J87GTxuhVxf4Kan5cnpo7qVjX1d6V"
 
 function shortenAddress(address: string) {
   return `${address.slice(0, 15)}...${address.slice(-15)}`
